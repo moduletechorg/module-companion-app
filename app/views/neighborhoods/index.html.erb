@@ -1,0 +1,37 @@
+<div class="container">
+  <h2 class="text-center">Neighborhoods</h2>
+  <!-- only for admin -->
+  <% content_for :admin_console do %>
+    <%= link_to "Add a Neighborhood", new_neighborhood_path, class: 'btn btn-primary' %>
+  <% end %>
+
+  <% if @neighborhoods.blank? %>
+    <div class="jumbotron text-center">
+      <p class="lead">There are not any neighborhoods in the system.</p>
+      <%= link_to "Add a Neighborhood", new_neighborhood_path, class: 'btn btn-primary' %>
+    </div>
+  <% else %>
+    <div class="row">
+    <% curr_row = 0 %>
+    <% @neighborhoods.each do |neighborhood| %>
+      <% if (curr_row % 3) == 0 %>
+        </div>
+        <div class="row">
+      <% end %>
+      <div class="col-12 col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= neighborhood.name %></h5>
+            <p class="card-text">
+              <%= neighborhood.city %>, <%= neighborhood.state %>
+            </p>
+            <%= link_to "Learn More", neighborhood_path(neighborhood), class: 'btn btn-info' %>
+          </div>
+        </div>
+      </div>
+      <% curr_row += 1 %>
+
+    <% end %>
+  <% end %>
+
+</div>

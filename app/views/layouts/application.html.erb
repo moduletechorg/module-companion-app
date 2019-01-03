@@ -11,13 +11,27 @@
 
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="nav navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="https://modulehousing.com/">Module</a>
+      <%= link_to 'Neighborhoods',  neighborhoods_path, class: 'nav-link' %>
     </nav>
     <main class="container-fluid">
-        <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-    <%= yield %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+      <!-- if user is admin -->
+      <div class="container">
+        <div class="bg-light admin-console text-center">
+          <div class="lead">
+            <h5>Admin Options</h5>
+            <div>
+              <%= yield :admin_console%>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <%= yield %>
     </main>
   </body>
 </html>
