@@ -20,15 +20,17 @@
       <p class="alert"><%= alert %></p>
 
       <!-- if user is admin -->
-      <div class="bg-light admin-console">
-        <div class="lead">
-          <h5>Admin Options</h5>
-          <div>
-            <%= yield :admin_console%>
+      <div class="container">
+        <div class="bg-light admin-console text-center">
+          <div class="lead">
+            <h5>Admin Options</h5>
+            <div>
+              <%= yield :admin_console%>
+            </div>
           </div>
         </div>
       </div>
-
+      <br />
       <%= yield %>
     </main>
   </body>
