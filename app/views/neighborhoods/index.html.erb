@@ -1,0 +1,19 @@
+<div class="container">
+  <h2 class="text-center">Neighborhoods</h2>
+
+  <% if @neighborhoods.blank? %>
+    <div class="jumbotron text-center">
+      <p class="lead">There are not any neighborhoods in the system.</p>
+      <%= link_to "Add a Neighborhood", new_neighborhood_path, class: 'btn btn-primary' %>
+    </div>
+  <% else %>
+    <% @neighborhoods.each do |neighborhood| %>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><% neighborhood.name %></h5>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+</div>

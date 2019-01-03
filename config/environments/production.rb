@@ -10,7 +10,7 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
-  config.action_mailer.default_url_options = { host: 'module-companion-app.herokuapp.com/', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'module-companion-app.herokuapp.com', port: 3000 }
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
