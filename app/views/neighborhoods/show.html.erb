@@ -1,0 +1,9 @@
+<div class="container">
+<h2 class="text-center"><%= @neighborhood.name %></h2>
+<!-- only for admin -->
+<% content_for :admin_console do %>
+  <%= link_to "Edit Neighborhood", edit_neighborhood_path, class: 'btn btn-warning' %>
+  <%= link_to "Remove Neighborhood", neighborhood_path(@neighborhood),
+      method: :delete,
+      class: 'btn btn-danger' %>
+<% end %>

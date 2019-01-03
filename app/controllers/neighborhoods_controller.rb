@@ -1,7 +1,8 @@
 class NeighborhoodsController < ApplicationController
+  #validate :user_is_admin, :before => :create, :update, :delete
 
   def index
-    @neighborhoods = Neighborhood.all
+    @neighborhoods = Neighborhood.all.order("name ASC")
   end
 
   def new
@@ -23,12 +24,24 @@ class NeighborhoodsController < ApplicationController
   end
 
   def edit
+    @neighborhood = Neighborhood.find(params[:id])
   end
 
   def update
+    @neighborhood = Neighborhood.find(params[:id])
+
+    if @neighborhood.update_attributes(neighborhood_params)
+      redirect_to :action => 'show', :id => @neighborhood
+    else
+      redirect_to :action => 'edit', :id => @neighborhood
+    end
+
   end
 
-  def delete
+  def destroy
+    @neighborhood = Neighborhood.find(params[:id])
+    @neighborhood.destroy
+    redirect_to neighborhoods_path
   end
 
   def neighborhood_params
