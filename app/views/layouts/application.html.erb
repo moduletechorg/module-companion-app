@@ -19,7 +19,7 @@
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
 
-      <!-- if user is admin -->
+      <% if current_user.admin? %>
       <div class="container">
         <div class="bg-light admin-console text-center">
           <div class="lead">
@@ -30,7 +30,10 @@
           </div>
         </div>
       </div>
+      <% end %>
+
       <br />
+      
       <%= yield %>
     </main>
   </body>

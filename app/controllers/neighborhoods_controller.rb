@@ -1,5 +1,4 @@
 class NeighborhoodsController < ApplicationController
-  #validate :user_is_admin, :before => :create, :update, :delete
 
   def index
     @neighborhoods = Neighborhood.all.order("name ASC")
