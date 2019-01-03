@@ -12,6 +12,8 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'module-companion-app.herokuapp.com', port: 3000 }
 
+  config.action_controller.include_all_helpers = true
+
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true

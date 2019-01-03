@@ -9,7 +9,7 @@
   <div class="row justify-content-lg-center">
 
     <%= form_for @neighborhood, url: {action: "create"} do |f| %>
-    
+
       <div class="form-row">
         <div class="form-group">
           <%= label_tag(:name, "Name") %>
@@ -23,8 +23,11 @@
         </div>
         <div class="form-group col-md-4">
           <%= label_tag(:state, "State") %>
-          <%= f.text_field :state, class: 'form-control' %>
+          <%= f.select :state, us_states, class: 'form-control' %>
         </div>
+      </div>
+      <div class="form-row">
+        <%= f.submit "Add", class: 'form-control btn btn-success' %>
       </div>
 
     <% end %>
