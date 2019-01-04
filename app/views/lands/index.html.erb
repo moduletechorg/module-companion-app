@@ -3,7 +3,12 @@
 <% end %>
 
 <div class="container">
-  <h2 class="text-center">Land Lots</h2>
+  <h2 class="text-center">
+    <% if @neighborhood_name %>
+      <%= @neighborhood_name %>
+    <% end %>
+    Land Lots
+  </h2>
   <br />
 
   <div class="jumbotron text-center">
@@ -19,6 +24,6 @@
     </div>
   <% end %>
 
-  <%= render "lands_index" %> 
+  <%= render "lands_index" %>
 
 </div>
