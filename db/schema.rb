@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_04_194600) do
+ActiveRecord::Schema.define(version: 2019_01_04_212648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_01_04_194600) do
     t.string "zoning_declaration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "mapframe"
     t.index ["neighborhood_id"], name: "index_lands_on_neighborhood_id"
   end
 

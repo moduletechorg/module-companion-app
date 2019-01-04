@@ -50,6 +50,6 @@ class LandsController < ApplicationController
   end
 
   def land_params
-    params.require(:land).permit(:address, :neighborhood_id, :size, :parcel_id, :pricing, :zoning_declaration)
+    params.require(:land).permit(:address, :neighborhood_id, :size, :parcel_id, :pricing, :zoning_declaration, :mapframe)
   end
 end
