@@ -11,6 +11,19 @@
     <h2><%= @neighborhood.name %></h2>
     <div class="lead"><%= @neighborhood.city_state_name %></div>
   </div>
+  <hr />
+  <div class="row">
+    <div class="col col-md-6 lead text-justify">
+      <%= @neighborhood.description %>
+    </div>
+    <div class="col col-md-6">
+      <% if @neighborhood.mapframe %>
+      <iframe width="100%" height="450" frameborder="0" style="border:0" src= <%= @neighborhood.mapframe %> allowfullscreen></iframe>
+      <% end %>
+    </div>
+  </div>
+
+  <br />
 
   <h4>Available Lots</h4>
   <%= render "lands/lands_index" %>

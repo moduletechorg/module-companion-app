@@ -4,7 +4,7 @@
 
 <div class="container">
   <h2 class="text-center">Neighborhoods</h2>
-
+  <br />
   <% if @neighborhoods.blank? %>
     <div class="jumbotron text-center">
       <p class="lead">There are not any neighborhoods in the system.</p>
@@ -15,14 +15,18 @@
     <% @neighborhoods.each do |neighborhood| %>
       <% if (curr_row % 3) == 0 %>
         </div>
+        <br />
         <div class="row">
       <% end %>
-      <div class="col-12 col-md-4">
+      <div class="col-sm col-6">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title"><%= neighborhood.name %></h5>
-            <p class="card-text">
+            <p class="card-subtitle mb-2 text-muted">
               <%= neighborhood.city_state_name %>
+            </p>
+            <p class="card-text">
+              <%= truncate(neighborhood.description, length: 100) %>
             </p>
             <%= link_to "Learn More", neighborhood_path(neighborhood), class: 'btn btn-info' %>
           </div>
