@@ -5,8 +5,8 @@
 <div class="container">
   <h2 class="text-center">Neighborhoods</h2>
   <% if @neighborhoods.blank? %>
-    <div class="jumbotron text-center">
-      <p class="lead">There are not any neighborhoods in the system.</p>
+    <div class="alert alert-warning lead text-center">
+      There are not any neighborhoods in the system.
     </div>
   <% else %>
     <div class="row">

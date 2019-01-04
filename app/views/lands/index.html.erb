@@ -11,16 +11,18 @@
   </h2>
   <br />
 
-  <div class="jumbotron text-center">
-    <%= link_to "All Lots", lands_path, class: 'btn btn-info' %>
-    <% @neighborhoods.each do |neighborhood| %>
-      <%= link_to neighborhood.name + " Lots", neighborhood_lands_path(neighborhood), class: 'btn btn-info' %>
-    <% end %>
+  <div class="alert alert-light text-center">
+    <div class='btn-group' role="group">
+      <%= link_to "All Lots", lands_path, class: 'btn btn-info' %>
+      <% @neighborhoods.each do |neighborhood| %>
+        <%= link_to neighborhood.name + " Lots", neighborhood_lands_path(neighborhood), class: 'btn btn-info' %>
+      <% end %>
+    </div>
   </div>
 
   <% if @lands.blank? %>
-    <div class="jumbotron text-center">
-      <p class="lead">There are not any lots in the system.</p>
+    <div class="text-center alert alert-warning lead">
+      There are no lots in the system that match your criteria
     </div>
   <% end %>
 
