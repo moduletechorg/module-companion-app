@@ -10,9 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2019_01_04_150907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "lands", force: :cascade do |t|
+    t.string "address"
+    t.bigint "neighborhood_id"
+    t.float "acreage"
+    t.string "size"
+    t.string "parcel_id"
+    t.float "pricing"
+    t.string "zoning_declaration"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["neighborhood_id"], name: "index_lands_on_neighborhood_id"
+  end
 
   create_table "neighborhoods", force: :cascade do |t|
     t.string "name"
@@ -35,4 +49,5 @@
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "lands", "neighborhoods"
 end

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  address: 123 Street Road
+  neighborhood: eastliberty
+  acreage: 1.5
+  size: 20 x 100
+  parcel_id: 1132-F-00130-0000-00
+  pricing: 50000.00
+  zoning_declaration: R1
+
+two:
+  address: 456 Boulevard Avenue
+  neighborhood: lawrenceville
+  acreage: 1.5
+  size: 30 x 100
+  parcel_id: 1123-F-00130-0000-00
+  pricing: 50000.00
+  zoning_declaration: R2

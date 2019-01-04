@@ -1,0 +1,41 @@
+<div class="row justify-content-lg-center">
+
+  <%= form_for @land do |f| %>
+
+    <div class="form-row form-group">
+      <%= label_tag(:parcel_id, 'Parcel ID') %>
+      <%= f.text_field :parcel_id, class: 'form-control' %>
+    </div>
+    <div class="form-row form-group">
+      <%= label_tag(:address, 'Address') %>
+      <%= f.text_area :address, class: 'form-control' %>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <%= label_tag(:zoning_declaration, 'Zoning Declaration') %>
+        <%= f.text_field :zoning_declaration, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= label_tag(:neighborhood, 'Neighborhood') %>
+        <%= f.collection_select(:neighborhood_id, Neighborhood.all, :id, :name) %>
+      </div>
+    </div>
+    <div class="row">
+        <div class="form-group col">
+          <%= label_tag(:size, 'Size') %>
+          <%= f.text_field :size, class: 'form-control' %>
+        </div>
+        <div class="form-group col">
+          <%= label_tag(:pricing, 'Pricing') %>
+          <%= f.text_field :pricing, class: 'form-control' %>
+        </div>
+    </div>
+
+
+    <div class="form-row">
+      <%= f.submit "Submit", class: 'form-control btn btn-success' %>
+    </div>
+
+  <% end %>
+
+</div>

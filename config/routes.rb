@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   root to: 'static_pages#home'
 
   resources :neighborhoods do
+    resources :lands, only: [:index, :new]
+  end
+
+  resources :lands do
 
   end
 end

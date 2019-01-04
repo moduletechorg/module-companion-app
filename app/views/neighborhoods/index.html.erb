@@ -1,9 +1,9 @@
+<% content_for :admin_console do %>
+  <%= link_to "Add a Neighborhood", new_neighborhood_path, class: 'btn btn-primary' %>
+<% end %>
+
 <div class="container">
   <h2 class="text-center">Neighborhoods</h2>
-  <!-- only for admin -->
-  <% content_for :admin_console do %>
-    <%= link_to "Add a Neighborhood", new_neighborhood_path, class: 'btn btn-primary' %>
-  <% end %>
 
   <% if @neighborhoods.blank? %>
     <div class="jumbotron text-center">
