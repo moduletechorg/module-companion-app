@@ -1,0 +1,6 @@
+<% content_for :admin_console do %>
+  <%= link_to "Edit Land Lot", edit_land_path, class: 'btn btn-warning' %>
+  <%= link_to "Remove Land Lot", land_path(@land),
+      method: :delete,
+      class: 'btn btn-danger' %>
+<% end %>

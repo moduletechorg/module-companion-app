@@ -8,7 +8,6 @@
   <% if @neighborhoods.blank? %>
     <div class="jumbotron text-center">
       <p class="lead">There are not any neighborhoods in the system.</p>
-      <%= link_to "Add a Neighborhood", new_neighborhood_path, class: 'btn btn-primary' %>
     </div>
   <% else %>
     <div class="row">
@@ -23,7 +22,7 @@
           <div class="card-body">
             <h5 class="card-title"><%= neighborhood.name %></h5>
             <p class="card-text">
-              <%= neighborhood.city %>, <%= neighborhood.state %>
+              <%= neighborhood.city_state_name %>
             </p>
             <%= link_to "Learn More", neighborhood_path(neighborhood), class: 'btn btn-info' %>
           </div>

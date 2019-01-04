@@ -43,5 +43,10 @@ class LandTest < ActiveSupport::TestCase
     assert_not @land1.valid?
   end
 
+  test "parcel_id must be unique" do
+    @land2.parcel_id = @land1.parcel_id
+    assert_not @land2.valid?
+  end
+
 
 end

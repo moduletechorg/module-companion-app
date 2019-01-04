@@ -1,11 +1,12 @@
 class LandsController < ApplicationController
 
   def index
-    if params[:neighborhood]
-      @lands = Land.where(:neighborhood => params[:neighborhood])
+    if params[:neighborhood_id]
+      @lands = Land.where(:neighborhood => params[:neighborhood_id])
     else
       @lands = Land.all
     end
+    @neighborhoods = Neighborhood.all.order("name ASC")
   end
 
   def new
@@ -48,6 +49,6 @@ class LandsController < ApplicationController
   end
 
   def land_params
-    params.require(:land).permit(:address, :neighborhood, :size, :parcel_id, :pricing, :zoning_declaration)
+    params.require(:land).permit(:address, :neighborhood_id, :size, :parcel_id, :pricing, :zoning_declaration)
   end
 end
