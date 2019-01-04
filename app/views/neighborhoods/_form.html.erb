@@ -19,6 +19,16 @@
       </div>
     </div>
     <div class="form-row">
+      <div class="form-group col">
+        <%= label_tag(:description, "Description") %>
+        <%= f.text_area :description, class: 'form-control' %>
+      </div>
+      <div>
+        <%= label_tag(:mapframe, "Google Maps Embedding") %>
+        <%= f.text_area :mapframe, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-row">
       <%= f.submit "Submit", class: 'form-control btn btn-success' %>
     </div>
 

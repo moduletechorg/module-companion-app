@@ -1,4 +1,7 @@
 class NeighborhoodsController < ApplicationController
+  before_action :user_is_admin?
+  # before_update :user_is_admin?
+  # before_destroy :user_is_admin?
 
   def index
     @neighborhoods = Neighborhood.all.order("name ASC")
@@ -45,6 +48,6 @@ class NeighborhoodsController < ApplicationController
   end
 
   def neighborhood_params
-    params.require(:neighborhood).permit(:name, :city, :state)
+    params.require(:neighborhood).permit(:name, :city, :state, :description, :mapframe)
   end
 end
