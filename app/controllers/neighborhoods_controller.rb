@@ -20,6 +20,7 @@ class NeighborhoodsController < ApplicationController
 
   def show
     @neighborhood = Neighborhood.find(params[:id])
+    @lands = Land.where(:neighborhood => params[:id])
   end
 
   def edit

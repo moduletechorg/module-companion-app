@@ -1,0 +1,21 @@
+<div class="row">
+<% curr_row = 0 %>
+<% @lands.each do |land| %>
+  <% if (curr_row % 3) == 0 %>
+    </div>
+    <div class="row">
+  <% end %>
+  <div class="col-12 col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= land.parcel_id %></h5>
+        <p class="card-text">
+          <%=  %>
+        </p>
+        <%= link_to "Learn More", land_path(land), class: 'btn btn-info' %>
+      </div>
+    </div>
+  </div>
+  <% curr_row += 1 %>
+
+<% end %>
