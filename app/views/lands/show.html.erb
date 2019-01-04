@@ -4,3 +4,14 @@
       method: :delete,
       class: 'btn btn-danger' %>
 <% end %>
+
+<div class="container">
+  <h4>Lot: <%= @land.parcel_id %></h4>
+  <div>
+    <p>Address: <%= @land.address %></p>
+    <p>Neighborhood: <%= link_to @neighborhood.name, neighborhood_path(@neighborhood) %></p>
+    <p>Size: <%= @land.size %></p>
+    <p>Pricing: <%= number_to_currency(@land.pricing) %></p>
+    <p>Zoning Declaration: <%= @land.zoning_declaration %></p>
+  </div>
+</div>

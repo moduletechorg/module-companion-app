@@ -25,6 +25,7 @@ class LandsController < ApplicationController
 
   def show
     @land = Land.find(params[:id])
+    @neighborhood = Neighborhood.find(@land.neighborhood_id)
   end
 
   def edit
