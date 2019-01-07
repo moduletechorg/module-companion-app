@@ -1,5 +1,6 @@
 class LandsController < ApplicationController
-
+  before_action :user_is_admin?
+  
   def index
     if params[:neighborhood_id]
       @lands = Land.where(:neighborhood => params[:neighborhood_id])
