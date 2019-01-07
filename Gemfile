@@ -18,6 +18,7 @@ gem 'uglifier', '>= 1.3.0'
 
 # Authentication
 gem 'devise'
+gem 'devise_invitable'
 
 # Styling
 # Bootstrap for initial styling and autoprefix for browser compatibility

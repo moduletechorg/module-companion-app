@@ -1,5 +1,6 @@
-<!-- ADD TO ADMIN CONSOLE:
-Invite new user -->
+<% content_for :admin_console do %>
+  <%= link_to "Invite New User", new_user_invitation_path, class: 'btn btn-primary' %>
+<% end %>
 
 <div class="container">
 
