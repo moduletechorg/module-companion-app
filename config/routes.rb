@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   match '/users/:id',             to: 'users#show',         via: 'get'
   match '/users/:id/make_admin',  to:'users#make_admin',   via: 'get', as: 'make_admin'
   match '/users/:id/remove_admin', to:'users#remove_admin', via: 'get', as: 'remove_admin'
+  match 'neighborhoods/:id/edit/delete_image/:attachment_id', to:'neighborhoods#delete_image', via: 'get', as: 'delete_neighborhood_image'
 
   root to: 'static_pages#home'
 

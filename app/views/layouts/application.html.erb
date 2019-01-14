@@ -43,6 +43,7 @@
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
 
+      <% if user_signed_in? %>
       <% if current_user.admin? %>
       <div class="container">
         <div class="bg-light admin-console text-center">
@@ -55,13 +56,16 @@
         </div>
       </div>
       <% end %>
+      <% end %>
 
       <br />
 
       <%= yield %>
       <br />
       <br />
-      <%= any_login_here if defined?(AnyLogin) %>
+      <% if user_signed_in? && current_user.admin? %>
+        <%= any_login_here if defined?(AnyLogin) %>
+      <% end %>
     </main>
 
   </body>

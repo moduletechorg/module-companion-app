@@ -1,7 +1,5 @@
 class NeighborhoodsController < ApplicationController
   before_action :user_is_admin?
-  # before_update :user_is_admin?
-  # before_destroy :user_is_admin?
 
   def index
     @neighborhoods = Neighborhood.all.order("name ASC")
@@ -47,7 +45,14 @@ class NeighborhoodsController < ApplicationController
     redirect_to neighborhoods_path
   end
 
+  def delete_image
+    @neighborhood = Neighborhood.find(params[:id])
+    image_id = params[:attachment_id]
+    @neighborhood.images.find(image_id).purge
+    redirect_to :action => 'edit', :id => @neighborhood
+  end
+
   def neighborhood_params
-    params.require(:neighborhood).permit(:name, :city, :state, :description, :mapframe)
+    params.require(:neighborhood).permit(:name, :city, :state, :description, :mapframe, :image, images: [])
   end
 end

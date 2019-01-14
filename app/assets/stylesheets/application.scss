@@ -12,6 +12,10 @@
  *
  */
 
+ /*
+*= require_tree .
+*/
+
 @import "bootstrap";
 
 .admin-console {
@@ -23,4 +27,16 @@
   padding-top: 4em;
   margin-bottom: 2em;
   background-color: lightgrey;
+}
+
+.flex-container-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+}
+
+.line-break {
+  width: 100%;
 }
