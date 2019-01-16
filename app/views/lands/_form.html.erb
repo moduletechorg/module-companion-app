@@ -33,6 +33,12 @@
     </div>
     <div class="row">
       <div class="form-group col">
+        <%= label_tag(:images, "Images") %>
+        <%= f.file_field :images, multiple: true, direct_upload: true, class: 'form-control-file' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col">
         <%= label_tag(:mapframe, 'Map Frame URL') %>
         <%= f.text_area :mapframe, class: 'form-control' %>
       </div>

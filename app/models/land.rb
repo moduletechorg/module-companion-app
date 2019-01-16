@@ -6,4 +6,5 @@ class Land < ApplicationRecord
       with: /\w{3}[0-9]-\w{0}[A-Z]-\w{4}[0-9]-\w{3}[0-9]-\w{1}[0-9]/,
       message: "Must be a valid Parcel ID format" },
     uniqueness: true
+  has_many_attached :images
 end
