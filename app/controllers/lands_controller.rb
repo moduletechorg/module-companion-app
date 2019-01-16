@@ -20,7 +20,7 @@ class LandsController < ApplicationController
 
     if @land.save
       flash[:success] = "New lot created."
-      render 'index'
+      render 'show'
     else
       render 'new'
     end
@@ -40,7 +40,8 @@ class LandsController < ApplicationController
 
     if @land.update_attributes(land_params)
       flash[:success] = "Lot has been updated."
-      redirect_to @land
+      @neighborhood = Neighborhood.find(@land.neighborhood_id)
+      render 'show'
     else
       render 'edit'
     end
@@ -50,7 +51,7 @@ class LandsController < ApplicationController
   def destroy
     @land = Land.find(params[:id])
     @land.destroy
-    redirect_to lands_path
+    render 'index'
   end
 
   def land_params
