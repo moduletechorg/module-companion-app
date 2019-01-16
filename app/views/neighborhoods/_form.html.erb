@@ -17,6 +17,7 @@
   <% end %>
  <div class="line-break"></div>
   <%= form_for @neighborhood do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
 
     <div class="form-row">
       <div class="form-group col">

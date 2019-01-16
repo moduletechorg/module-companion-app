@@ -1,6 +1,6 @@
 class LandsController < ApplicationController
   before_action :user_is_admin?
-  
+
   def index
     if params[:neighborhood_id]
       @lands = Land.where(:neighborhood => params[:neighborhood_id])
@@ -16,12 +16,13 @@ class LandsController < ApplicationController
   end
 
   def create
-    @land = Land.new(land_params)
+    @land = Land.create(land_params)
 
     if @land.save
-      redirect_to :action => 'index'
+      flash[:success] = "New lot created."
+      render 'index'
     else
-      redirect_to :action => 'new'
+      render 'new'
     end
   end
 
@@ -38,9 +39,10 @@ class LandsController < ApplicationController
     @land = Land.find(params[:id])
 
     if @land.update_attributes(land_params)
-      redirect_to :action => 'show', :id => @land
+      flash[:success] = "Lot has been updated."
+      redirect_to @land
     else
-      redirect_to :action => 'edit', :id => @land
+      render 'edit'
     end
 
   end

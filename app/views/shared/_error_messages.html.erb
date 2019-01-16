@@ -1,0 +1,8 @@
+<% if object.errors.any? %>
+  <div class="alert alert-danger">
+    <%= content_tag(:div, content_tag(:strong, "#{pluralize(object.errors.count, 'error')} found"), class: 'text-center') %>
+    <% object.errors.full_messages.each do |error_message| %>
+      <p><%= error_message %></p>
+    <% end %>
+  </div>
+<% end %>

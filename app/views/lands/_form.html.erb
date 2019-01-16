@@ -1,6 +1,7 @@
 <div class="row justify-content-lg-center">
 
   <%= form_for @land do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
 
     <div class="form-row form-group">
       <%= label_tag(:parcel_id, 'Parcel ID') %>
