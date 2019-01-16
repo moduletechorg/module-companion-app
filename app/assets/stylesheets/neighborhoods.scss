@@ -6,3 +6,21 @@
 .delete-neighborhood-image-card {
   margin: 1.5rem;
 }
+
+.delete-neighborhood-image-card img {
+  max-height: 400px;
+  max-width: 100%;
+}
+
+.neighborhood-images-container {
+  overflow: scroll;
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: 2em;
+}
+
+.neighborhood-image {
+  display: inline;
+  margin-right: 1em;
+  max-height: 400px;
+}

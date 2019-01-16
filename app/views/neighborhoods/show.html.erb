@@ -13,33 +13,13 @@
   </div>
   <hr />
   <% if @neighborhood.images.attached? %>
-  <!-- Begin neighborhood images carousel -->
-  <div class="row">
-    <div id="carouselNeighborhoodImages" class="carousel slide carousel-fade" data-ride="carousel">
-      <div class="carousel-inner">
-        <% first_image = true %>
-        <% @neighborhood.images.each do |image| %>
-        <% if first_image %>
-        <div class="carousel-item active">
-        <% first_image = false %>
-        <% else %>
-        <div class="carousel-item">
-        <% end %>
-          <%= image_tag image.variant(resize: "400x400"), class: "d-block w-100 img-fluid", alt: "Lawrenceville Image" %>
-        </div>
-        <% end %>
-      </div>
-      <a class="carousel-control-prev" href="#carouselNeighborhoodImages" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselNeighborhoodImages" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
+  <!-- Begin neighborhood images -->
+  <div class="neighborhood-images-container">
+    <% @neighborhood.images.each do |image| %>
+      <%= image_tag image, class: 'neighborhood-image' %>
+    <% end %>
   </div>
-  <!-- End neighborhood images carousel -->
+  <!-- End neighborhood images -->
   <% end %>
   <div class="row">
     <div class="col col-md-6 lead text-justify">
