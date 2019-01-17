@@ -8,11 +8,9 @@
 <div class="container">
   <h4 class="text-center">Lot: <%= @land.parcel_id %></h4>
   <hr />
-  <div class="row">
-    <!-- Begin lot images -->
-    <%= render 'shared/sliding_images', object: @land %>
-    <!-- End lot images -->
-  </div>
+  <!-- Begin lot images -->
+  <%= render 'shared/sliding_images', object: @land %>
+  <!-- End lot images -->
   <div class="row">
     <div class="col-sm col-md-6">
       <p>Address: <%= @land.address %></p>

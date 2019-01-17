@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :user_is_admin?, only: [:index, :make_admin, :remove_admin]
 
   def index
     if current_user.admin?

@@ -1,5 +1,5 @@
 class LandsController < ApplicationController
-  before_action :user_is_admin?
+  before_action :user_is_admin?, only: [:new, :edit, :destroy]
 
   def index
     if params[:neighborhood_id]
