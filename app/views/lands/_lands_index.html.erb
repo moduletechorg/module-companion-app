@@ -12,8 +12,8 @@
       <% end %>
       <div class="card-body">
         <h5 class="card-title"><%= land.parcel_id %></h5>
-        <p class="card-text">
-          <%=  %>
+        <p class="card-subtitle mb-2 text-muted">
+          <%= "#{land.neighborhood.name}, #{land.neighborhood.city_state_name}" %>
         </p>
         <%= link_to "Learn More", land_path(land), class: 'btn btn-info' %>
       </div>
