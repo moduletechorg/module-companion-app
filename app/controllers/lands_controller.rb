@@ -54,6 +54,13 @@ class LandsController < ApplicationController
     render 'index'
   end
 
+  def delete_image
+    @land = Land.find(params[:id])
+    image_id = params[:attachment_id]
+    @land.images.find(image_id).purge
+    redirect_to :action => 'edit', :id => @land
+  end
+
   def land_params
     params.require(:land).permit(:address, :neighborhood_id, :size, :parcel_id, :pricing, :zoning_declaration, :mapframe, images: [])
   end

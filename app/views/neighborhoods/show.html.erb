@@ -14,11 +14,7 @@
   <hr />
   <% if @neighborhood.images.attached? %>
   <!-- Begin neighborhood images -->
-  <div class="neighborhood-images-container">
-    <% @neighborhood.images.each do |image| %>
-      <%= image_tag image, class: 'neighborhood-image' %>
-    <% end %>
-  </div>
+  <%= render 'shared/sliding_images', object: @neighborhood %>
   <!-- End neighborhood images -->
   <% end %>
   <div class="row">

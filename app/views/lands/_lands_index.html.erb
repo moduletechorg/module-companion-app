@@ -7,6 +7,9 @@
   <% end %>
   <div class="col-sm col-4">
     <div class="card">
+      <% if land.images.attached? %>
+        <%= image_tag land.images.first, class: 'card-img-top' %>
+      <% end %>
       <div class="card-body">
         <h5 class="card-title"><%= land.parcel_id %></h5>
         <p class="card-text">

@@ -19,6 +19,9 @@
       <% end %>
       <div class="col-sm col-6">
         <div class="card">
+          <% if neighborhood.images.attached? %>
+            <%= image_tag neighborhood.images.first, class: 'card-img-top' %>
+          <% end %>
           <div class="card-body">
             <h5 class="card-title"><%= neighborhood.name %></h5>
             <p class="card-subtitle mb-2 text-muted">

@@ -17,7 +17,8 @@ class UsersController < ApplicationController
     if current_user.admin?
       @user.update_attribute :admin, true
     end
-    redirect_to users_path(@user)
+    #add flash message here
+    render 'show'
   end
 
   def remove_admin
@@ -25,7 +26,8 @@ class UsersController < ApplicationController
     if current_user.admin?
       @user.update_attribute :admin, false
     end
-    redirect_to users_path(@user)
+    #add flash message here
+    render 'show'
   end
 
 end

@@ -13,7 +13,7 @@ class NeighborhoodsController < ApplicationController
     @neighborhood = Neighborhood.create(neighborhood_params)
 
     if @neighborhood.save
-      redirect_to :action => 'index'
+      render 'index'
     else
       render 'new'
     end
@@ -32,7 +32,7 @@ class NeighborhoodsController < ApplicationController
     @neighborhood = Neighborhood.find(params[:id])
 
     if @neighborhood.update_attributes(neighborhood_params)
-      redirect_to @neighborhood
+      render 'show'
     else
       render 'edit'
     end

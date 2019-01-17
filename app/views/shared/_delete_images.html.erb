@@ -1,0 +1,20 @@
+<% unless object.new_record? %>
+  <% if object.images.attached? %>
+  <div class="flex-container-row">
+    <% object.images.each do |image| %>
+      <div class="card delete-image-card">
+        <div class="card-img-top">
+          <%= image_tag image %>
+        </div>
+        <div class="card-body text-center">
+          <% if object.class ==  Neighborhood %>
+            <%= render 'neighborhoods/delete_image_link', image: image %>
+          <% elsif object.class == Land %>
+            <%= render 'lands/delete_image_link', image: image %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <% end %>-
+<% end %>

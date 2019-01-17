@@ -40,10 +40,29 @@
 .line-break {
   width: 100%;
 }
-// 
-// .field_with_errors {
-//   @extend .has-error;
-//   .form-control {
-//     color: $state-danger-text;
-//   }
-// }
+
+.sliding-images-container {
+  overflow: scroll;
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: 2em;
+}
+
+.sliding-image {
+  display: inline;
+  margin-right: 1em;
+  max-height: 400px;
+}
+
+.delete-image-card {
+  margin: 1.5rem;
+}
+
+.delete-image-card img {
+  max-height: 400px;
+  max-width: 100%;
+}
+
+.card {
+  max-height: 100vh;
+}
