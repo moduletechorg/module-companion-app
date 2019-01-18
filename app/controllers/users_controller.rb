@@ -11,6 +11,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    unless current_user.admin? || @user == current_user
+      flash[:danger] = "You do not have permission to view that profile"
+      redirect_to root_path
+    end
   end
 
   def make_admin

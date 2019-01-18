@@ -1,0 +1,9 @@
+admin_user:
+  email: briangaudio@test.com
+  encrypted_password: gj34985ualkdfgj294p39ut2039847ihjdfsj'adls;kfjwoe
+  admin: true
+
+not_admin_user:
+  email: drewbrisley@test.com
+  encrypted_password: asdlkfjop23i471089327u4iadjf;al;ksej408923378
+  admin: false
