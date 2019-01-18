@@ -58,7 +58,8 @@ class LandsController < ApplicationController
     @land = Land.find(params[:id])
     image_id = params[:attachment_id]
     @land.images.find(image_id).purge
-    redirect_to :action => 'edit', :id => @land
+    flash[:warning] = "Image has been deleted"
+    render 'edit'
   end
 
   def land_params

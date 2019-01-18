@@ -32,8 +32,10 @@ class NeighborhoodsController < ApplicationController
     @neighborhood = Neighborhood.find(params[:id])
 
     if @neighborhood.update_attributes(neighborhood_params)
+      flash[:success] = "Neighborhood has been updated"
       render 'show'
     else
+      flash[:danger] = "Error while updating neighborhood"
       render 'edit'
     end
 
@@ -42,14 +44,16 @@ class NeighborhoodsController < ApplicationController
   def destroy
     @neighborhood = Neighborhood.find(params[:id])
     @neighborhood.destroy
-    redirect_to neighborhoods_path
+    flash[:warning] = "Neighborhood has been deleted"
+    render 'index'
   end
 
   def delete_image
     @neighborhood = Neighborhood.find(params[:id])
     image_id = params[:attachment_id]
     @neighborhood.images.find(image_id).purge
-    redirect_to :action => 'edit', :id => @neighborhood
+    flash[:warning] = 'Image has been deleted'
+    render 'edit'
   end
 
   def neighborhood_params

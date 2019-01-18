@@ -19,19 +19,15 @@ class UsersController < ApplicationController
 
   def make_admin
     @user = User.find(params[:id])
-    if current_user.admin?
-      @user.update_attribute :admin, true
-    end
-    #add flash message here
+    @user.update_attribute :admin, true
+    flash[:success] = "#{@user.email} is now an admin"
     render 'show'
   end
 
   def remove_admin
     @user = User.find(params[:id])
-    if current_user.admin?
-      @user.update_attribute :admin, false
-    end
-    #add flash message here
+    @user.update_attribute :admin, false
+    flash[:warning] = "#{@user.email} is no longer an admin"
     render 'show'
   end
 
