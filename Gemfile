@@ -21,6 +21,9 @@ gem 'devise'
 gem 'devise_invitable'
 gem 'any_login'
 
+# Figaro for hiding env vars
+gem 'figaro'
+
 # Styling
 # Bootstrap for initial styling and autoprefix for browser compatibility
 gem 'bootstrap', '~> 4.2.1'
