@@ -1,7 +1,5 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# Seeds generated using lib/tasks/export.rake
+
+Neighborhood.create("name"=>"Lawrenceville", "city"=>"Pittsburgh", "state"=>"PA", "mapframe"=>"https://www.google.com/maps/embed/v1/place?q=Lawrenceville%20pgh&key=AIzaSyCo6_JIQStF9vp0daZX3wYPZmicLbp5BN0", "description"=>"Lawrenceville offers modern and historic housing, convenient access to neighborhood business districts, and easy access to work in Downtown and Oakland, the two largest employment centers in the region. Key features of Lawrenceville include Arsenal Park (formerly the Allegheny Arsenal and now a Pittsburgh City Park), Allegheny Cemetery (one of the oldest and largest cemeteries in the nation), Carnegie Mellon University’s National Robotics Engineering Consortium, and the new Children’s Hospital of Pittsburgh of UPMC campus.")
+
+Land.create("address"=>"5452 Black St", "neighborhood_id"=>3, "acreage"=>nil, "size"=>"15 x 20", "parcel_id"=>"1132-F-00130-0000-00", "pricing"=>50000.0, "zoning_declaration"=>"R1", "mapframe"=>"https://www.google.com/maps/embed/v1/place?q=5452%20Black%20St.%20Pittsburgh%2C%20PA&key=AIzaSyCo6_JIQStF9vp0daZX3wYPZmicLbp5BN0")
