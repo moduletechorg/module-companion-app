@@ -28,7 +28,6 @@ class NeighborhoodsLandsTest < ActionDispatch::IntegrationTest
         delete neighborhood_path(@neighborhood)
       end
     end
-
   end
 
 end
