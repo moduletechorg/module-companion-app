@@ -3,7 +3,7 @@ class LandsController < ApplicationController
 
   def index
     if params[:neighborhood_id]
-      @lands = Land.where(:neighborhood => params[:neighborhood_id])
+      @lands = Land.where(neighborhood: params[:neighborhood_id])
       @neighborhood_name = Neighborhood.find(params[:neighborhood_id]).name
     else
       @lands = Land.all
