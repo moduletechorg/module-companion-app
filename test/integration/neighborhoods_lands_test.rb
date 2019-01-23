@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class UsersNeighborhoodsTest < ActionDispatch::IntegrationTest
+class NeighborhoodsLandsTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   def setup
