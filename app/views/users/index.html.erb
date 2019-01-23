@@ -12,7 +12,9 @@
         <%= link_to user_email, user_path(user) %>
         <% if user.admin? %>
           <span class="badge badge-primary badge-pill">Admin</span>
-          <span class="badge badge-warning badge-pill"><%= link_to "Sign in as #{user.email}", impersonate_user_path(user), method: :post %></li>
+        <% end %>
+        <% if current_user.admin? && current_user != user %>
+          <span class="badge badge-warning badge-pill"><%= link_to "Sign in as #{user.email}", impersonate_user_path(user), method: :post %></li></span>
         <% end %>
       </li>
     <% end %>

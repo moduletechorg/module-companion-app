@@ -38,13 +38,16 @@
         </ul>
       </div>
     </nav>
-    <main class="container-fluid">
-      <% if user_signed_in? %>
-      <% if current_user != true_user %>
-        You (<%= true_user.name %>) are signed in as <%= current_user.name %>
-        <%= link_to "Back to admin", stop_impersonating_users_path, method: :post %>
-      <% end %>
-      <% if current_user.admin? %>
+    <main>
+      <div class="container text-center">
+        <% if user_signed_in? && current_user != true_user %>
+          <div class="alert alert-light" role="alert">
+            You (<%= true_user.email %>) are signed in as <%= current_user.email %>
+            <%= link_to "Back to admin", stop_impersonating_users_path, method: :post %>
+          </div>
+        <% end %>
+      </div>
+      <% if user_signed_in? && current_user.admin? %>
       <br />
       <div class="container">
         <div class="bg-light admin-console text-center">
@@ -56,7 +59,6 @@
           </div>
         </div>
       </div>
-      <% end %>
       <% end %>
 
       <br />
