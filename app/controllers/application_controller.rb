@@ -1,11 +1,5 @@
 class ApplicationController < ActionController::Base
-
-  # def delete_image
-  #   @object = object.class.find(params[:id])
-  #   image_id = params[:attachment_id]
-  #   @object.images.find(image_id).purge
-  #   redirect_back fallback_location: root
-  # end
+  impersonates :user
 
   private
     def user_is_admin?
