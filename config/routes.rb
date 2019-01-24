@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   end
 
   resources :lands do
+  end
 
+  resources :land_types do
   end
 end
