@@ -35,15 +35,4 @@ class LandTypesControllerTest < ActionDispatch::IntegrationTest
     assert_template 'land_types/edit'
   end
 
-  test 'nonadmin cannot delete land types' do
-    assert_difference('LandType.count', 0) do
-      delete land_type_path(@land_type)
-    end
-    assert_response :redirect
-    sign_in @admin
-    assert_difference('LandType.count', -1) do
-      delete land_type_path(@land_type)
-    end
-    assert_response :success
-  end
 end

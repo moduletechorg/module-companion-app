@@ -1,0 +1,16 @@
+<div class="row justify-content-lg-center">
+  <%= form_for @land_type do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+
+    <div class="form-group">
+      <%= label_tag(:name, "Name") %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div class="form-row">
+      <%= f.submit "Submit", class: 'form-control btn btn-success' %>
+    </div>
+
+  <% end %>
+
+</div>

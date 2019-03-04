@@ -48,5 +48,10 @@ class LandTest < ActiveSupport::TestCase
     assert_not @land2.valid?
   end
 
+  test "land has land_type" do
+    @land1.land_type = nil
+    assert_not @land1.valid?
+  end
+
 
 end

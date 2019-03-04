@@ -8,6 +8,7 @@ one:
   parcel_id: 1132-F-00130-0000-00
   pricing: 50000.00
   zoning_declaration: R1
+  land_type: exclusive
 
 two:
   address: 456 Boulevard Avenue
@@ -17,3 +18,4 @@ two:
   parcel_id: 1123-F-00130-0000-00
   pricing: 50000.00
   zoning_declaration: R2
+  land_type: ready

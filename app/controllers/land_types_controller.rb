@@ -9,6 +9,17 @@ class LandTypesController < ApplicationController
     @land_type = LandType.new
   end
 
+  def create
+    @land_type = LandType.create(land_type_params)
+
+    if @land_type.save
+      flash[:success] = "New land type created."
+      redirect_to land_types_path
+    else
+      render 'new'
+    end
+  end
+
   def edit
     @land_type = LandType.find(params[:id])
   end
@@ -16,7 +27,7 @@ class LandTypesController < ApplicationController
   def destroy
     @land_type = LandType.find(params[:id])
     @land_type.destroy
-    render 'index'
+    redirect_to land_types_path
   end
 
   private

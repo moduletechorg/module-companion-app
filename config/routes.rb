@@ -23,5 +23,6 @@ Rails.application.routes.draw do
   end
 
   resources :land_types do
+    resources :lands, only: [:index, :new]
   end
 end

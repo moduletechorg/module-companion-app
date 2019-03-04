@@ -1,0 +1,17 @@
+<% content_for :admin_console do %>
+  <%= link_to "Remove Neighborhood", neighborhood_path(@land_type),
+      method: :delete,
+      class: 'btn btn-danger' %>
+<% end %>
+
+<div class="container">
+  <div class="row">
+    <h2 class="text-center col">Editing <%= @land_type.name %></h2>
+  </div>
+
+  <br />
+
+  <%= render "form" %>
+
+
+</div>

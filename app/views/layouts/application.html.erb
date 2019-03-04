@@ -28,7 +28,13 @@
           </li>
           <% if user_signed_in? %>
             <% if current_user.admin? %>
-              <li><%= link_to 'Users', users_path, class: 'nav-link' %></li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>
+                <div class="dropdown-menu">
+                  <%= link_to 'Users', users_path, class: 'dropdown-item' %>
+                  <%= link_to 'Land Types', land_types_path, class: 'dropdown-item' %>
+                </div>
+              </li>
             <% end %>
             <li><%= link_to 'Edit Profile', edit_user_registration_path(current_user), class: 'nav-link' %></li>
             <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link' %></li>

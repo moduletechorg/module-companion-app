@@ -2,13 +2,26 @@ class LandsController < ApplicationController
   before_action :user_is_admin?, only: [:new, :edit, :destroy]
 
   def index
-    if params[:neighborhood_id]
-      @lands = Land.where(neighborhood: params[:neighborhood_id])
-      @neighborhood_name = Neighborhood.find(params[:neighborhood_id]).name
-    else
-      @lands = Land.all
+    @lands = Land.all
+    @land_type = nil
+    @neigbhorhood = nil
+    @filtered = false
+
+    neighborhood_param = params.dig("land", "neighborhood_id")
+    land_type_param = params.dig("land", "land_type_id")
+
+    if params.has_key?(:land)
+      if !neighborhood_param.empty?
+        @lands = @lands.neighborhood_filter(neighborhood_param)
+        @neighborhood = Neighborhood.find(neighborhood_param)
+        @filtered = true
+      end
+      if !land_type_param.empty?
+        @lands = @lands.land_type_filter(land_type_param)
+        @land_type = LandType.find(land_type_param)
+        @filtered = true
+      end
     end
-    @neighborhoods = Neighborhood.all.order("name ASC")
   end
 
   def new
@@ -20,7 +33,7 @@ class LandsController < ApplicationController
 
     if @land.save
       flash[:success] = "New lot created."
-      render 'show'
+      redirect_to land_path(@land)
     else
       render 'new'
     end
@@ -63,6 +76,6 @@ class LandsController < ApplicationController
   end
 
   def land_params
-    params.require(:land).permit(:address, :neighborhood_id, :size, :parcel_id, :pricing, :zoning_declaration, :mapframe, images: [])
+    params.require(:land).permit(:address, :neighborhood_id, :land_type_id, :size, :parcel_id, :pricing, :zoning_declaration, :mapframe, images: [])
   end
 end

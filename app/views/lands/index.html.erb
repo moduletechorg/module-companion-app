@@ -4,16 +4,24 @@
 
 <div class="container">
   <h2 class="text-center">
-    <% if @neighborhood_name %><%= @neighborhood_name %><% end %> Land Lots
+    Land Lots
   </h2>
   <br />
 
   <div class="alert alert-light text-center">
-    <div class='btn-group' role="group">
-      <%= link_to "All Lots", lands_path, class: 'btn btn-info' %>
-      <% @neighborhoods.each do |neighborhood| %>
-        <%= link_to neighborhood.name + " Lots", neighborhood_lands_path(neighborhood), class: 'btn btn-info' %>
-      <% end %>
+    <%= link_to "All Lots", lands_path, class: 'btn btn-info' %>
+    <br />
+    <br />
+    <div>
+      <%= render 'filter' %>
+    </div>
+    <br />
+    <div>
+      Current filters
+      <br />
+      <% if @neighborhood %> Neighborhood: <%= @neighborhood.name %><% end %>
+      <br />
+      <% if @land_type %>Lot Type: <%= @land_type.name %><% end %>
     </div>
   </div>
 
