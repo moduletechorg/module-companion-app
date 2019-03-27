@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_24_180052) do
+ActiveRecord::Schema.define(version: 2019_03_26_155300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,15 +47,24 @@ ActiveRecord::Schema.define(version: 2019_01_24_180052) do
     t.bigint "neighborhood_id"
     t.float "acreage"
     t.string "size"
-    t.string "parcel_id"
     t.float "pricing"
     t.string "zoning_declaration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "mapframe"
     t.bigint "land_type_id"
+    t.text "why_we_like_it"
     t.index ["land_type_id"], name: "index_lands_on_land_type_id"
     t.index ["neighborhood_id"], name: "index_lands_on_neighborhood_id"
+  end
+
+  create_table "nearby_locations", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "land_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "within_10"
+    t.boolean "within_mile"
   end
 
   create_table "neighborhoods", force: :cascade do |t|
@@ -85,6 +94,32 @@ ActiveRecord::Schema.define(version: 2019_01_24_180052) do
     t.string "invited_by_type"
     t.bigint "invited_by_id"
     t.integer "invitations_count", default: 0
+    t.string "housing_option"
+    t.integer "age"
+    t.string "current_housing"
+    t.string "living_with"
+    t.integer "num_kids"
+    t.string "current_type_housing"
+    t.integer "current_size_housing"
+    t.string "state"
+    t.string "city"
+    t.string "neighborhood"
+    t.text "location_perks"
+    t.integer "preferred_bedroom"
+    t.float "preferred_bathroom"
+    t.text "must_haves"
+    t.string "move_in_time"
+    t.integer "budget"
+    t.boolean "mortgage"
+    t.boolean "pre_approved_mortgage"
+    t.integer "down_payment_amount"
+    t.string "first_name"
+    t.string "last_name"
+    t.text "location_perks_other"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
     t.index ["invitations_count"], name: "index_users_on_invitations_count"

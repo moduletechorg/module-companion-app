@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'nearby_locations/new'
+  get 'nearby_locations/create'
+  get 'nearby_locations/update'
+  get 'nearby_locations/edit'
+  get 'nearby_locations/destroy'
+  get 'nearby_locations/index'
   devise_for :users, :path_prefix => 'd'
   resources :users, :only =>[:show, :make_admin, :remove_admin] do
     post :impersonate, on: :member
@@ -13,7 +19,7 @@ Rails.application.routes.draw do
   match 'neighborhoods/:id/edit/delete_image/:attachment_id', to:'neighborhoods#delete_image', via: 'get', as: 'delete_neighborhood_image'
   match 'lands/:id/edit/delete_image/:attachment_id', to:'lands#delete_image', via: 'get', as: 'delete_land_image'
 
-  root to: 'static_pages#home'
+  root to: 'lands#index'
 
   resources :neighborhoods do
     resources :lands, only: [:index, :new]
@@ -24,5 +30,8 @@ Rails.application.routes.draw do
 
   resources :land_types do
     resources :lands, only: [:index, :new]
+  end
+
+  resources :nearby_locations do
   end
 end

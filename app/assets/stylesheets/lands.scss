@@ -1,0 +1,109 @@
+.line-break{
+  width: 100%;
+}
+
+.construction-image {
+    width: 100%;
+  }
+
+.title-blurb {
+  width: 60%;
+  margin-top: 1em;
+  font-weight: lighter;
+  font-size: 1.5em;
+}
+
+.lots-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  margin-bottom: 5em;
+}
+
+.ready-lot{
+  margin: 1em;
+  max-width: 45%;
+}
+
+.exclusive-lot{
+  margin: 1em;
+  max-width: 30%;
+}
+
+.ready-lot-image{
+  margin-bottom: 1em;
+  max-height: 70vh;
+}
+
+.ready-lot-info{
+  padding-top: 15px;
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+  justify-content: space-between;
+}
+
+.ready-lot-learn-more {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.lot-info{
+  padding: 20px 0 60px;
+  padding: 1.25rem 0 3.75rem;
+}
+
+.lot-info .double-header {
+  margin-bottom: 4em;
+}
+
+.lot-info-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  padding-bottom: 2em;
+}
+
+.lot-blurb {
+  max-width: 65%;
+}
+
+.lot-info-overview {
+  max-width: 500px;
+}
+
+.lot-info-image {
+  max-height: 70vh;
+  margin-bottom: 1em;
+}
+
+.lot-info-floorplan {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  padding-bottom: 2em;
+}
+
+.lot-form {
+  background-color: #F0F2F6;
+}
+
+.ready-lot-images-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+}
+
+.module-exclusive-lots{
+  padding: 20px 0 60px;
+  padding: 1.25rem 0 3.75rem;
+}

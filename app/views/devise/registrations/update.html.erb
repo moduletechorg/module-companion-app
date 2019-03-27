@@ -1,0 +1,107 @@
+<div class="form-group col-1">
+  <%= f.label :age %>
+  <%= f.text_field 'age', class: "form-control" %>
+</div>
+
+
+<div class="row form-row">
+  <div class="form-group col-1">
+    <%= f.label :state %>
+    <%= f.select :state, options_for_select(us_states), class: 'form-control' %>
+  </div>
+  <div class="form-group col">
+    <%= f.label :city %>
+    <%= f.text_field :city, class: 'form-control' %>
+  </div>
+  <div class="form-group col">
+    <%= f.label :neighborhood %>
+    <%= f.text_field :neighborhood, class: 'form-control' %>
+  </div>
+</div>
+
+<div class="row form-row">
+  <div class="form-group col">
+    <%= f.label :housing_option, 'Select the option that best describes you.' %><br />
+    <%= f.select :housing_option, housing_options, class: 'form-control' %>
+  </div>
+
+  <div class="form-group col">
+    <%= f.label :current_housing, "What best describes your CURRENT living situation?" %>
+    <%= f.select :current_housing, current_housing, class: 'form-control' %>
+  </div>
+
+  <div class="form-group col">
+    <%= f.label :current_type_housing, "What type of place are you currently living in?" %>
+    <%= f.select :current_type_housing, current_type_housing, class: 'form-control' %>
+  </div>
+
+  <div class="form-group col">
+    <%= f.label :current_size_housing, "What size is your place?" %>
+    <%= f.select :current_size_housing, current_size_housing, class: 'form-control' %>
+  </div>
+
+</div>
+
+<div class="row form-row">
+  <div class="form-group col">
+    <%= f.label :living_with, "Who do you live with?" %><br />
+    <%= f.select :living_with, living_with, class: 'form-control' %>
+  </div>
+
+  <div class="form-group col">
+    <%= f.label :num_kids, "How many kids do you have?" %><br />
+    <%= f.select :num_kids, num_kids, class: 'form-control' %>
+  </div>
+</div>
+
+<div class="row form-row">
+  <div class="form-group col">
+    <%= f.label :location_perks, "As you think about where you want to live, what is most important to you?" %><br />
+    <%= f.select :location_perks, location_perks, class: 'form-control' %>
+  </div>
+
+</div>
+
+<div class="form-row row">
+  <div class="form-group col">
+    <%= f.label :preferred_bedroom, "What size home do you want to start with?" %><br />
+    <%= f.select :preferred_bedroom, preferred_bedroom, class: 'form-control' %>
+  </div>
+
+  <div class="form-group col">
+    <%= f.label :preferred_bathroom, "How many bathrooms to start?" %><br />
+    <%= f.select :preferred_bathroom, preferred_bathroom, class: 'form-control' %>
+  </div>
+
+  <div class="form-group col">
+    <%= f.label :must_haves, "Please list any other must-haves you have in mind." %>
+    <%= f.text_area :must_haves, class: 'form-control' %>
+  </div>
+</div>
+
+<div class="form-row row">
+  <div class="form-group col">
+    <%= f.label :move_in_time, "What is your ideal timeline for move-in?" %><br />
+    <%= f.select :move_in_time, move_in_time, class: 'form-control' %>
+  </div>
+
+  <div class="form-group col">
+    <%= f.label :budget, "What is your all-in budget for your next home (including land)?" %><br />
+    <%= f.select :budget, budget, class: 'form-control' %>
+  </div>
+
+  <div class="form-group col">
+    <%= f.label :mortgage, "Do you plan on getting a mortgage" %><br />
+    <%= f.select :mortgage, [['Yes', true], ['No', false]], class: 'form-control' %>
+  </div>
+
+  <div class="form-group col">
+    <%= f.label :pre_approved_mortgage, "Have you been pre-approved for a mortgage?" %><br />
+    <%= f.select :pre_approved_mortgage, [['Yes', true], ['No', false]], class: 'form-control' %>
+  </div>
+
+  <div class="form-group col">
+    <%= f.label :down_payment_amount, "How much do you plan to put down for a down payment?" %><br />
+    <%= f.select :down_payment_amount, down_payment_amount, class: 'form-control' %>
+  </div>
+</div>

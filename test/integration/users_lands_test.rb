@@ -36,14 +36,14 @@ class UsersLandsTest < ActionDispatch::IntegrationTest
     sign_in @nonadmin
     get land_path(@land)
     assert_template 'lands/show'
-    assert_select 'h4', "Lot: #{@land.parcel_id}"
+    assert_select 'h4', "Lot: #{@land.address}"
     assert_select 'a[href=?]', edit_land_path, count: 0, text: 'Edit Land Lot'
   end
 
   test 'show as public' do
     get land_path(@land)
     assert_template 'lands/show'
-    assert_select 'h4', "Lot: #{@land.parcel_id}"
+    assert_select 'h4', "Lot: #{@land.address}"
     assert_select 'a[href=?]', edit_land_path, count: 0, text: 'Edit Land Lot'
   end
 
@@ -51,7 +51,7 @@ class UsersLandsTest < ActionDispatch::IntegrationTest
     sign_in @admin
     get land_path(@land)
     assert_template 'lands/show'
-    assert_select 'h4', "Lot: #{@land.parcel_id}"
+    assert_select 'h4', "Lot: #{@land.address}"
     assert_select 'a[href=?]', edit_land_path, text: 'Edit Land Lot'
   end
 

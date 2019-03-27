@@ -1,6 +1,6 @@
 <% unless object.new_record? %>
   <% if object.images.attached? %>
-  <div class="flex-container-row">
+  <div class="col">
     <% object.images.each do |image| %>
       <div class="card delete-image-card">
         <div class="card-img-top">
@@ -16,5 +16,5 @@
       </div>
     <% end %>
   </div>
-  <% end %>-
+  <% end %>
 <% end %>

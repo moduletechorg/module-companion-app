@@ -18,6 +18,103 @@
 
 @import "bootstrap";
 
+@font-face {
+  font-family: "Neue Haas", sans-serif;
+  src: url('/assets/stylesheets/neuhaas.css');
+}
+
+body {
+  font-family: "Neue Haas", sans-serif;
+  font-size: 1em;
+  color: #0A2240;
+}
+
+section, div {
+  display: block;
+}
+
+h1, .home-hero .home-hero__content h1 p, h2, h3, .price-tiers .tier .price, h4, h5, h6 {
+  font-weight: bolder;
+  color: #0A2240;
+  margin-top: 0px;
+  line-height: 1.2;
+  font-family: "Neue Haas", sans-serif;
+}
+
+h2 {
+  font-size: 48px;
+  font-size: 3rem;
+  margin: 0 0 20px;
+  margin: 0 0 1.25rem;
+}
+
+h3 {
+  font-size: 22px;
+  font-size: 1.375rem;
+  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
+  font-weight: 400;
+}
+
+form {
+  margin: 0 auto;
+}
+
+img {
+  border: 0;
+}
+
+p {
+  margin: 0 0 25px;
+  margin: 0 0 1.5625em;
+  font-size: 20px;
+  font-size: 1.25em;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+b, strong {
+  font-weight: 700;
+}
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  display: block;
+  unicode-bidi: isolate;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  overflow: hidden;
+  border-style: inset;
+  border-width: 1px;
+}
+
+.double-header .title {
+    display: inline-block;
+    margin: 0 auto !important;
+    padding: 0 .25em;
+    font-size: 60px;
+    font-size: 3rem;
+    color: #0A2240;
+    width: auto;
+}
+
+.title-blurb {
+    width: 60%;
+    margin-top: 1em;
+    font-weight: lighter;
+    font-size: 1.5em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.u-center-block {
+  display: block;
+  margin: 0 auto;
+}
+
 .admin-console {
   border-radius: 20px;
   padding: 2em;
@@ -54,15 +151,51 @@
   max-height: 400px;
 }
 
-.delete-image-card {
-  margin: 1.5rem;
-}
-
 .delete-image-card img {
-  max-height: 400px;
   max-width: 100%;
 }
 
-.card {
-  max-height: 100vh;
-}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.btn {
+  font-size: 24px;
+  font-size: 1.5rem;
+  padding: 8px 25px;
+  padding: 0.5rem 1.5625rem;
+  transition: background-color 0.15s linear, color 0.15s linear, border-color 0.15s linear;
+  border: 0px;
+  display: inline-block;
+  font-family: "Neue Haas", sans-serif;
+  line-height: 1.3;
+  text-align: center;
+  text-decoration: none !important;
+   }
+  button:active, button:focus,
+  input[type="button"]:active,
+  input[type="button"]:focus,
+  input[type="reset"]:active,
+  input[type="reset"]:focus,
+  input[type="submit"]:active,
+  input[type="submit"]:focus,
+  .btn:active,
+  .btn:focus {
+    outline: 0; }
+  button.btn-small,
+  input[type="button"].btn-small,
+  input[type="reset"].btn-small,
+  input[type="submit"].btn-small,
+  .btn.btn-small {
+    font-size: 24px;
+    font-size: 1.5rem;
+    padding: 5px 12px;
+    padding: .3125rem .75rem;
+    border-width: 2px; }
+
+.btn-outline-black {
+border: 3px solid #0A2240;
+color: #0A2240; }
+.btn-outline-black:hover {
+background-color: #0A2240;
+color: white; }

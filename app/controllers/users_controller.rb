@@ -42,4 +42,10 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  private
+
+    def user_info_params
+      params.permit(:housing_option, :age, :current_housing, :living_with, :num_kids, :current_type_housing, :current_size_housing, :state, :city, :neighborhood, :location_perks, :preferred_bedroom, :preferred_bathroom, :must_haves, :move_in_time, :budget, :mortgage, :pre_approved_mortgage, :down_payment_amount, :first_name, :last_name, :location_perks_other)
+    end
+
 end

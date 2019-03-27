@@ -23,9 +23,6 @@
           <li class="nav-item">
             <%= link_to 'Land', lands_path, class: 'nav-link' %>
           </li>
-          <li>
-            <%= link_to 'Neighborhoods',  neighborhoods_path, class: 'nav-link' %>
-          </li>
           <% if user_signed_in? %>
             <% if current_user.admin? %>
               <li class="nav-item dropdown">
@@ -33,6 +30,7 @@
                 <div class="dropdown-menu">
                   <%= link_to 'Users', users_path, class: 'dropdown-item' %>
                   <%= link_to 'Land Types', land_types_path, class: 'dropdown-item' %>
+                  <%= link_to 'Neighborhoods', neighborhoods_path, class: 'dropdown-item' %>
                 </div>
               </li>
             <% end %>

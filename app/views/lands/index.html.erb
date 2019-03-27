@@ -1,29 +1,15 @@
 <% content_for :admin_console do %>
-  <%= link_to "Add a Land Lot", new_land_path, class: 'btn btn-primary' %>
+  <%= link_to "Add a Lot", new_land_path, class: 'btn btn-primary' %>
 <% end %>
 
 <div class="container">
-  <h2 class="text-center">
-    Land Lots
-  </h2>
-  <br />
-
-  <div class="alert alert-light text-center">
-    <%= link_to "All Lots", lands_path, class: 'btn btn-info' %>
-    <br />
-    <br />
-    <div>
-      <%= render 'filter' %>
-    </div>
-    <br />
-    <div>
-      Current filters
-      <br />
-      <% if @neighborhood %> Neighborhood: <%= @neighborhood.name %><% end %>
-      <br />
-      <% if @land_type %>Lot Type: <%= @land_type.name %><% end %>
-    </div>
+  <div class="double-header text-center">
+    <h2 class="text-center title">
+      Module Approved Lots
+    </h2>
+    <h3 class="title-blurb">All the lots you see below are available exclusively to Module (and you!) We've done the grunt work of making sure the lots are good to build on and are in locations you'll want to live in.</h3>
   </div>
+  <br />
 
   <% if @lands.blank? %>
     <div class="text-center alert alert-warning lead">
@@ -33,4 +19,4 @@
 
   <%= render "lands_index" %>
 
-</div>
+<br />

@@ -5,7 +5,6 @@ one:
   neighborhood: eastliberty
   acreage: 1.5
   size: 20 x 100
-  parcel_id: 1132-F-00130-0000-00
   pricing: 50000.00
   zoning_declaration: R1
   land_type: exclusive
@@ -15,7 +14,6 @@ two:
   neighborhood: lawrenceville
   acreage: 1.5
   size: 30 x 100
-  parcel_id: 1123-F-00130-0000-00
   pricing: 50000.00
   zoning_declaration: R2
   land_type: ready

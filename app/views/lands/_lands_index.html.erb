@@ -1,24 +1,31 @@
+<div class="lots-container">
+<% num_lots = 0 %>
 <div class="row">
-<% curr_row = 0 %>
 <% @lands.each do |land| %>
-  <% if (curr_row % 3) == 0 %>
+  <% if num_lots % 3 == 0 %>
     </div>
     <div class="row">
   <% end %>
-  <div class="col-sm col-4">
-    <div class="card">
-      <% if land.images.attached? %>
-        <%= image_tag land.images.first, class: 'card-img-top' %>
-      <% end %>
-      <div class="card-body">
-        <h5 class="card-title"><%= land.parcel_id %></h5>
-        <p class="card-subtitle mb-2 text-muted">
-          <%= "#{land.neighborhood.name}, #{land.neighborhood.city_state_name}" %>
-        </p>
-        <%= link_to "Learn More", land_path(land), class: 'btn btn-info' %>
+  <div class="exclusive-lot col">
+    <% if land.images.attached? %>
+      <div>
+        <%= image_tag land.images.first, class: 'img-fluid u-center-block ready-lot-image' %>
+      </div>
+    <% end %>
+    <div class="ready-lot-info">
+      <div>
+        <b>Address</b>
+        <p><%= land.address %><br />
+           <%= land.neighborhood.city_state_name%></p>
+      </div>
+      <div>
+        <b>Neighborhood</b>
+        <p><%= land.neighborhood.name %></p>
       </div>
     </div>
+    <div class="ready-lot-learn-more">
+      <%= link_to "Learn More", land_path(land), class: 'btn btn-outline-black' %>
+    </div>
   </div>
-  <% curr_row += 1 %>
-
+  <% num_lots += 1 %>
 <% end %>

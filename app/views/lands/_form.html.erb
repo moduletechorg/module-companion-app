@@ -1,45 +1,46 @@
-<div class="row justify-content-lg-center">
-  <%= render 'shared/delete_images', object: @land %>
+<div class="justify-content-lg-center">
+
+  <div class="row">
+    <%= render 'shared/delete_images', object: @land %>
+  </div>
+  <br />
+  <% if @locations %>
+    <p>Click on the locations below to remove them from this lot listing</p>
+    <div class="row">
+      <% @locations.each do |loc| %>
+        <div class="col">
+          <div>
+            <%= link_to loc.name, nearby_location_path(loc), method: :delete %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  <br />
   <div class="line-break"></div>
   <%= form_for @land do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
 
-    <div class="form-row form-group">
-      <%= label_tag(:parcel_id, 'Parcel ID') %>
-      <%= f.text_field :parcel_id, class: 'form-control' %>
-    </div>
-    <div class="form-row form-group">
-      <%= label_tag(:address, 'Address') %>
-      <%= f.text_area :address, class: 'form-control' %>
-    </div>
-    <div class="form-row">
+    <div class="row">
       <div class="form-group col">
-        <%= label_tag(:size, 'Size') %>
-        <%= f.text_field :size, class: 'form-control' %>
+        <%= label_tag(:address, 'Address') %>
+        <%= f.text_field :address, class: 'form-control' %>
       </div>
-      <div class="form-group col">
-        <%= label_tag(:pricing, 'Pricing') %>
-        <%= f.text_field :pricing, class: 'form-control' %>
-      </div>
-      <div class="form-group">
-        <%= label_tag(:zoning_declaration, 'Zoning Declaration') %>
-        <%= f.text_field :zoning_declaration, class: 'form-control' %>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col">
+      <div class="form-group  col">
         <%= label_tag(:neighborhood, 'Neighborhood') %>
         <%= f.collection_select(:neighborhood_id, Neighborhood.all, :id, :name, {}, {class: 'form-control'}) %>
       </div>
-      <div class="form-group col">
-        <%= label_tag(:land_type, 'Land Type') %>
-        <%= f.collection_select(:land_type_id, LandType.all, :id, :name, {}, {class: 'form-control'}) %>
+    </div>
+    <div class="row">
+      <div class="col form-group">
+        <%= label_tag(:images, "Images") %>
+        <%= f.file_field :images, multiple: true, direct_upload: true, class: 'form-control-file' %>
       </div>
     </div>
     <div class="row">
       <div class="form-group col">
-        <%= label_tag(:images, "Images") %>
-        <%= f.file_field :images, multiple: true, direct_upload: true, class: 'form-control-file' %>
+        <%= label_tag(:why_we_like_it) %>
+        <%= f.text_area :why_we_like_it, class: 'form-control' %>
       </div>
     </div>
     <div class="row">
@@ -47,10 +48,17 @@
         <%= label_tag(:mapframe, 'Map Frame URL') %>
         <%= f.text_area :mapframe, class: 'form-control' %>
       </div>
+      <div class="form-group col">
+        <%= label_tag "Nearby Locations Within a 10 minute walk" %><br />
+        <%= f.text_area :nearby_locations_10, class: 'form-control' %>
+      </div>
+      <div class="form-group col">
+        <%= label_tag "Nearby Locations Within a Mile" %><br />
+        <%= f.text_area :nearby_locations_mi, class: 'form-control' %>
+      </div>
     </div>
 
-
-    <div class="form-row">
+    <div class="row">
       <%= f.submit "Submit", class: 'form-control btn btn-success' %>
     </div>
 

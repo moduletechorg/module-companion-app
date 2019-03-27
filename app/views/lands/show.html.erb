@@ -6,24 +6,85 @@
 <% end %>
 
 <div class="container">
-  <h4 class="text-center">Lot: <%= @land.parcel_id %></h4>
-  <hr />
-  <!-- Begin lot images -->
-  <%= render 'shared/sliding_images', object: @land %>
-  <!-- End lot images -->
-  <div class="row">
-    <div class="col-sm col-md-6">
-      <p>Address: <%= @land.address %></p>
-      <p>Neighborhood: <%= link_to @neighborhood.name, neighborhood_path(@neighborhood) %></p>
-      <p>Size: <%= @land.size %></p>
-      <p>Pricing: <%= number_to_currency(@land.pricing) %></p>
-      <p>Zoning Declaration: <%= @land.zoning_declaration %></p>
-      <p>Lot type: <%= @land.land_type.name %>
+  <section class="lot-info">
+    <div class="double-header text-center">
+      <h2 class="title"><%= @land.address %></h2>
+      <h3><%= @land.neighborhood.city_state_name %></h3>
     </div>
-    <div class="col-sm col-md-6">
-      <% if @land.mapframe != nil %>
-        <iframe width="100%" height="450" frameborder="0" style="border:0" src= <%= @land.mapframe %> allowfullscreen></iframe>
-      <% end %>
+    <br />
+    <div class="container">
+      <!-- Begin lot images -->
+      <div class="lot-info-section">
+        <div class="ready-lot-images-container">
+          <%= image_tag @land.images.first, class: "lot-info-image" %>
+        </div>
+      </div>
+      <!-- End lot images -->
+      <div class="lot-info-section">
+        <div>
+          <h3>Location</h3>
+          <hr>
+          <br />
+          <div>
+            <b>Neighborhood</b>
+            <p><%= @neighborhood.name %></p>
+          </div>
+          <div>
+            <b>Address</b>
+            <p><%= @land.address %></p>
+          </div>
+        </div>
+        <div class="lot-blurb">
+          <h3>Why We Like It</h3>
+          <hr>
+          <p><%= @land.why_we_like_it %></p>
+        </div>
+      </div>
+      <div class="lot-info-section">
+        <h2>What's Close By</h2>
+        <div class="line-break"></div>
+        <div>
+          <div class="overlay" onclick="style.pointerEvents='none'"></div>
+          <% if @land.mapframe %>
+             <iframe height="450" width="640" frameborder="0" style="border:0" src=<%= @land.mapframe %> allowfullscreen></iframe>
+          <% end %>
+        </div>
+      </div>
+      <div class="lot-info-section">
+        <div class="locations-nearby">
+          <h3>10 minute walk</h3>
+          <hr>
+          <% if @nearby_locations_10 %>
+            <p>
+            <% @nearby_locations_10.each do |loc| %>
+              <%= loc.name %><br />
+            <% end %>
+            <p>
+          <% end %>
+        </div>
+        <div class="locations-nearby">
+          <h3>Within a mile</h3>
+          <hr>
+          <% if @nearby_locations_mi %>
+            <p>
+            <% @nearby_locations_mi.each do |loc| %>
+              <%= loc.name %><br />
+            <% end %>
+            <p>
+          <% end %>
+        </div>
+      </div>
+      <!-- <div class="lot-info-section">
+        <div class="row">
+          <h2 class="col">What Do You Think?</h2>
+        </div>
+        <div class="line-break"></div>
+        <div class="row">
+          <div class="col">
+          </div>
+        </div>
+      </div> -->
+
     </div>
-  </div>
+  </section>
 </div>
