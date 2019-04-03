@@ -14,11 +14,13 @@
     <br />
     <div class="container">
       <!-- Begin lot images -->
-      <div class="lot-info-section">
-        <div class="ready-lot-images-container">
-          <%= image_tag @land.images.first, class: "lot-info-image" %>
+      <% if @land.images %>
+        <div class="lot-info-section">
+          <div class="ready-lot-images-container">
+            <%= image_tag @land.images.first, class: "lot-info-image" %>
+          </div>
         </div>
-      </div>
+      <% end %>
       <!-- End lot images -->
       <div class="lot-info-section">
         <div>
