@@ -14,7 +14,7 @@
     <br />
     <div class="container">
       <!-- Begin lot images -->
-      <% if @land.images %>
+      <% if @land.images.first %>
         <div class="lot-info-section">
           <div class="ready-lot-images-container">
             <%= image_tag @land.images.first, class: "lot-info-image" %>
