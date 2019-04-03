@@ -51,28 +51,30 @@
         </div>
       </div>
       <div class="lot-info-section">
-        <div class="locations-nearby">
-          <h3>10 minute walk</h3>
-          <hr>
-          <% if @nearby_locations_10 %>
+        <% if @nearby_locations_10 %>
+          <div class="locations-nearby">
+            <h3>10 minute walk</h3>
+            <hr>
             <p>
             <% @nearby_locations_10.each do |loc| %>
               <%= loc.name %><br />
             <% end %>
             <p>
-          <% end %>
-        </div>
-        <div class="locations-nearby">
-          <h3>Within a mile</h3>
-          <hr>
-          <% if @nearby_locations_mi %>
+          </div>
+        <% end %>
+        <% if @nearby_locations_mi %>
+          <div class="locations-nearby">
+            <h3>Within a mile</h3>
+            <hr>
+
             <p>
             <% @nearby_locations_mi.each do |loc| %>
               <%= loc.name %><br />
             <% end %>
             <p>
-          <% end %>
-        </div>
+
+          </div>
+        <% end %>
       </div>
       <!-- <div class="lot-info-section">
         <div class="row">
