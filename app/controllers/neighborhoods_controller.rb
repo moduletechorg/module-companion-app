@@ -13,6 +13,7 @@ class NeighborhoodsController < ApplicationController
     @neighborhood = Neighborhood.create(neighborhood_params)
 
     if @neighborhood.save
+      @neighborhoods = Neighborhood.all.order("name ASC")
       render 'index'
     else
       render 'new'
