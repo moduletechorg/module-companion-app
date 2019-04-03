@@ -13,9 +13,7 @@
         <%= f.label :last_name, "Last Name" %>
         <%= f.text_field :last_name, class: 'form-control' %>
       </div>
-    </div>
-    <div class="row form-row">
-      <div class="field form-group col">
+      <div class="form-group col">
         <%= f.label :email %><br />
         <%= f.email_field :email, autocomplete: "email", class: 'form-control' %>
       </div>
@@ -34,9 +32,224 @@
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
       </div>
     </div>
+    <hr>
+    <h4>Tell us what you're looking for</h4>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <%= f.label :housing_option, "Select the option that best describes what you're interested in" %>
+          <div class="form-check">
+            <%= f.radio_button :housing_option, "single family", class: "form-check-input" %>
+            <%= f.label :housing_option, "A single family home for myself/family", class: "form-check-label" %>
+          </div>
+          <div class="form-check">
+            <%= f.radio_button :housing_option, "investment", class: "form-check-input" %>
+            <%= f.label :housing_option, "An investment property", class: "form-check-label" %>
+          </div>
+          <div class="form-check">
+            <%= f.radio_button :housing_option, "secondary", class: "form-check-input" %>
+            <%= f.label :housing_option, "A vacation home/secondary residence", class: "form-check-label" %>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <%= f.label "Where do you plan to build your next home?" %>
+        <div class="row">
+          <div class="col-3">
+            <div class="form-group">
+              <%= f.label :state %>
+              <%= f.select :state, options_for_select(us_states), {}, {class: "form-control"} %>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <%= f.label :city %>
+              <%= f.text_field :city, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <div class="actions">
-      <%= f.submit "Create Account", class: 'form-group btn btn-success' %>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <%= f.label :preferred_bedroom, "How many bedrooms do you want in your next home?" %><br />
+          <div class="form-check">
+            <%= f.radio_button :preferred_bedroom, 1, class: "form-check-input" %>
+            <%= f.label :preferred_bedroom, "1", class: "form-check-label" %>
+          </div>
+          <div class="form-check">
+            <%= f.radio_button :preferred_bedroom, 2, class: "form-check-input" %>
+            <%= f.label :preferred_bedroom, "2", class: "form-check-label" %>
+          </div>
+          <div class="form-check">
+            <%= f.radio_button :preferred_bedroom, 3, class: "form-check-input" %>
+            <%= f.label :preferred_bedroom, "3", class: "form-check-label" %>
+          </div>
+          <div class="form-check">
+            <%= f.radio_button :preferred_bedroom, 4, class: "form-check-input" %>
+            <%= f.label :preferred_bedroom, "4", class: "form-check-label" %>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <%= f.label :preferred_bathroom, "How many bathrooms do you want in your next home?" %><br />
+          <div class="form-check">
+            <%= f.radio_button :preferred_bathroom, 1, class: "form-check-input" %>
+            <%= f.label :preferred_bathroom, "1", class: "form-check-label" %>
+          </div>
+          <div class="form-check">
+            <%= f.radio_button :preferred_bathroom, 1.5, class: "form-check-input" %>
+            <%= f.label :preferred_bathroom, "1.5", class: "form-check-label" %>
+          </div>
+          <div class="form-check">
+            <%= f.radio_button :preferred_bathroom, 2, class: "form-check-input" %>
+            <%= f.label :preferred_bathroom, "2", class: "form-check-label" %>
+          </div>
+          <div class="form-check">
+            <%= f.radio_button :preferred_bathroom, 2.5, class: "form-check-input" %>
+            <%= f.label :preferred_bathroom, "2.5", class: "form-check-label" %>
+          </div>
+          <div class="form-check">
+            <%= f.radio_button :preferred_bathroom, 3, class: "form-check-input" %>
+            <%= f.label :preferred_bathroom, "3", class: "form-check-label" %>
+          </div>
+          <div class="form-check">
+            <%= f.radio_button :preferred_bathroom, 3.5, class: "form-check-input" %>
+            <%= f.label :preferred_bathroom, "3.5+", class: "form-check-label" %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <%= f.label :location_perks, "What is important to you as you think about the location of your next home? (Select all that apply)" %>
+          <div class="form-check">
+            <%= f.check_box :location_perks, { class: "form-check-input" }, "Proximity to nature" %>
+            <%= f.label :location_perks, "Proximity to nature", class: "form-check-label" %>
+          </div>
+          <div class="form-check">
+            <%= f.check_box :location_perks, { class: "form-check-input" }, "Proximity to public transit" %>
+            <%= f.label :location_perks, "Proximity to public transit", class: "form-check-label" %>
+          </div>
+          <div class="form-check">
+            <%= f.check_box :location_perks, { class: "form-check-input" }, "Having a yard" %>
+            <%= f.label :location_perks, "Having a yard", class: "form-check-label" %>
+          </div>
+          <div class="form-check">
+            <%= f.check_box :location_perks, { class: "form-check-input" }, "Proximity to grocery stores" %>
+            <%= f.label :location_perks, "Proximity to grocery stores", class: "form-check-label" %>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <%= f.label :must_haves, "What is important to you in your next home?" %>
+          <div class="form-check">
+            <%= f.check_box :must_haves, { class: "form-check-input" }, "Energy Efficiency" %>
+            <%= f.label :must_haves, "Energy Efficiency", class: "form-check-label" %>
+          </div>
+          <div class="form-check">
+            <%= f.check_box :must_haves, { class: "form-check-input" }, "Sustainable Materials" %>
+            <%= f.label :must_haves, "Sustainable Materials", class: "form-check-label" %>
+          </div>
+          <div class="form-check">
+            <%= f.check_box :must_haves, { class: "form-check-input" }, "Architectural-Level Design" %>
+            <%= f.label :must_haves, "Architectural-Level Design", class: "form-check-label" %>
+          </div>
+          <div class="form-check">
+            <%= f.check_box :must_haves, { class: "form-check-input" }, "Small Footprint" %>
+            <%= f.label :must_haves, "Small Footprint", class: "form-check-label" %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+    <h4>Budget and Timeline</h4>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <%= f.label :move_in_time, "What is your move-in timeline?" %>
+          <div class="form-check">
+            <%= f.radio_button :move_in_time, "6-12 months", class: "form-check-input" %>
+            <%= f.label :move_in_time, "6-12 months", class: "form-check-label" %>
+          </div>
+          <div class="form-check">
+            <%= f.radio_button :move_in_time, "12-18 months", class: "form-check-input" %>
+            <%= f.label :move_in_time, "12-18 months", class: "form-check-label" %>
+          </div>
+          <div class="form-check">
+            <%= f.radio_button :move_in_time, "18 months - 2 years", class: "form-check-input" %>
+            <%= f.label :move_in_time, "18 months - 2 years", class: "form-check-label" %>
+          </div>
+          <div class="form-check">
+            <%= f.radio_button :move_in_time, "2+ years", class: "form-check-input" %>
+            <%= f.label :move_in_time, "2+ years", class: "form-check-label" %>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <%= f.label :budget, "What is your all-in budget for your next home (including land)?" %>
+          <div class="form-check">
+            <%= f.radio_button :budget, 200, class: "form-check-input" %>
+            <%= f.label :budget, "< 200K", class: "form-check-label" %>
+          </div>
+          <div class="form-check">
+            <%= f.radio_button :budget, 250, class: "form-check-input" %>
+            <%= f.label :budget, "$200K-$250K", class: "form-check-label" %>
+          </div>
+          <div class="form-check">
+            <%= f.radio_button :budget, 300, class: "form-check-input" %>
+            <%= f.label :budget, "$250K-$300K", class: "form-check-label" %>
+          </div>
+          <div class="form-check">
+            <%= f.radio_button :budget, 350, class: "form-check-input" %>
+            <%= f.label :budget, "$300K-$350K", class: "form-check-label" %>
+          </div>
+          <div class="form-check">
+            <%= f.radio_button :budget, 400, class: "form-check-input" %>
+            <%= f.label :budget, "$350K-$400K", class: "form-check-label" %>
+          </div>
+          <div class="form-check">
+            <%= f.radio_button :budget, 450, class: "form-check-input" %>
+            <%= f.label :budget, "$450K+", class: "form-check-label" %>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <%= f.label :pre_approved_mortgage, "Are you prepapproved for a mortgage?" %>
+          <div class="form-check">
+            <%= f.radio_button :pre_approved_mortgage, true, class: "form-check-input" %>
+            <%= f.label :pre_approved_mortgage, "Yes", class: "form-check-label" %>
+          </div>
+          <div class="form-check">
+            <%= f.radio_button :pre_approved_mortgage, nil, class: "form-check-input" %>
+            <%= f.label :pre_approved_mortgage, "No", class: "form-check-label" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <hr>
+    <h4>Terms and Conditions</h4>
+    <div class="row">
+      <div class="col">
+
+      </div>
+    </div> -->
+    <hr>
+    <div class="row">
+      <div class="col">
+        <div class="actions">
+          <%= f.submit "Create Account", class: 'form-group btn btn-success' %>
+        </div>
+      </div>
     </div>
   <% end %>
 
