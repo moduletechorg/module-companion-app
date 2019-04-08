@@ -1,7 +1,7 @@
-<div class="container">
+<div class="jumbotron container">
   <h2 class="text-center"><%= t "devise.invitations.new.header" %></h2>
   <br />
-  
+
   <div class="row justify-content-center">
     <div class="col-lg-4">
       <%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post} do |f| %>
