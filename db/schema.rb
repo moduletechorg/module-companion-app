@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_17_135813) do
+ActiveRecord::Schema.define(version: 2019_04_17_160809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,6 +103,19 @@ ActiveRecord::Schema.define(version: 2019_04_17_135813) do
     t.text "why_we_like_it"
     t.index ["land_type_id"], name: "index_lands_on_land_type_id"
     t.index ["neighborhood_id"], name: "index_lands_on_neighborhood_id"
+  end
+
+  create_table "location_perks", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "location_perks_users", id: false, force: :cascade do |t|
+    t.bigint "location_perk_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["location_perk_id", "user_id"], name: "index_location_perks_users_on_location_perk_id_and_user_id"
+    t.index ["user_id", "location_perk_id"], name: "index_location_perks_users_on_user_id_and_location_perk_id"
   end
 
   create_table "nearby_locations", force: :cascade do |t|
