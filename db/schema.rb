@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_17_160809) do
+ActiveRecord::Schema.define(version: 2019_04_17_183405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,25 @@ ActiveRecord::Schema.define(version: 2019_04_17_160809) do
   create_table "b64_images", force: :cascade do |t|
     t.text "image", null: false
     t.integer "land_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "features", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "features_users", id: false, force: :cascade do |t|
+    t.bigint "feature_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["feature_id", "user_id"], name: "index_features_users_on_feature_id_and_user_id"
+    t.index ["user_id", "feature_id"], name: "index_features_users_on_user_id_and_feature_id"
+  end
+
+  create_table "important_features", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -157,10 +176,8 @@ ActiveRecord::Schema.define(version: 2019_04_17_160809) do
     t.string "housing_option"
     t.string "state"
     t.string "city"
-    t.text "location_perks"
     t.integer "preferred_bedroom"
     t.float "preferred_bathroom"
-    t.text "must_haves"
     t.string "move_in_time"
     t.integer "budget"
     t.boolean "pre_approved_mortgage"

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :features
   resources :location_perks
   devise_for :users, :path_prefix => 'd'
   resources :users, :only =>[:show, :make_admin, :remove_admin] do
