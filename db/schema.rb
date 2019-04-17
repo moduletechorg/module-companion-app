@@ -94,13 +94,7 @@ ActiveRecord::Schema.define(version: 2019_04_17_183405) do
     t.bigint "user_id", null: false
     t.index ["feature_id", "user_id"], name: "index_features_users_on_feature_id_and_user_id"
     t.index ["user_id", "feature_id"], name: "index_features_users_on_user_id_and_feature_id"
-  end
-
-  create_table "important_features", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+  end 
 
   create_table "land_types", force: :cascade do |t|
     t.string "name", null: false
