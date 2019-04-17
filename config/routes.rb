@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
-  get 'nearby_locations/new'
-  get 'nearby_locations/create'
-  get 'nearby_locations/update'
-  get 'nearby_locations/edit'
-  get 'nearby_locations/destroy'
-  get 'nearby_locations/index'
+
   devise_for :users, :path_prefix => 'd'
   resources :users, :only =>[:show, :make_admin, :remove_admin] do
     post :impersonate, on: :member
@@ -15,6 +10,7 @@ Rails.application.routes.draw do
   match '/users/:id',             to: 'users#show',         via: 'get'
   match '/users/:id/make_admin',  to:'users#make_admin',   via: 'get', as: 'make_admin'
   match '/users/:id/remove_admin', to:'users#remove_admin', via: 'get', as: 'remove_admin'
+  match '/users/:id/edit', to: 'users#edit', via: 'get', as: 'edit'
 
   match 'neighborhoods/:id/edit/delete_image/:attachment_id', to:'neighborhoods#delete_image', via: 'get', as: 'delete_neighborhood_image'
   match 'lands/:id/edit/delete_image/:attachment_id', to:'lands#delete_image', via: 'get', as: 'delete_land_image'
