@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_18_134034) do
+ActiveRecord::Schema.define(version: 2019_04_18_151244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,10 +59,6 @@ ActiveRecord::Schema.define(version: 2019_04_18_134034) do
   create_table "lands", force: :cascade do |t|
     t.string "address"
     t.bigint "neighborhood_id"
-    t.float "acreage"
-    t.string "size"
-    t.float "pricing"
-    t.string "zoning_declaration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "mapframe"
