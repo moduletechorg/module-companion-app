@@ -32,4 +32,7 @@ Rails.application.routes.draw do
 
   resources :nearby_locations do
   end
+
+  get 'other_lots', action: :other_lots, controller: 'lands'
+
 end

@@ -3,6 +3,8 @@
 <% end %>
 
 <div class="container">
+  <%= render "button_nav" %>
+
   <div class="double-header text-center">
     <h2 class="text-center title">
       Module Approved Lots
@@ -13,7 +15,7 @@
 
   <% if @lands.blank? %>
     <div class="text-center alert alert-warning lead">
-      There are no lots in the system that match your criteria
+      There are no lots in the system.
     </div>
   <% end %>
 

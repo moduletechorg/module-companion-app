@@ -84,11 +84,16 @@ class LandsController < ApplicationController
     render 'edit'
   end
 
-  def land_params
-    params.require(:land).permit(:address, :neighborhood_id, :land_type_id, :size, :pricing, :zoning_declaration, :mapframe, :why_we_like_it, :nearby_locations, images: [])
+  def other_lots
   end
 
   private
+
+    def land_params
+      params.require(:land).permit(:address, :neighborhood_id, :land_type_id, :mapframe, :why_we_like_it, :nearby_locations, images: [])
+    end
+
+
     def parse_locations(locations, is_10)
       within_10 = nil
       within_mi = nil
