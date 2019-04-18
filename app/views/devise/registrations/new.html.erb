@@ -7,15 +7,15 @@
     <div class="row form-row">
       <div class="form-group col">
         <%= f.label :first_name, 'First Name' %>
-        <%= f.text_field :first_name, class: 'form-control' %>
+        <%= f.text_field :first_name, class: 'form-control', required: true %>
       </div>
       <div class="form-group col">
         <%= f.label :last_name, "Last Name" %>
-        <%= f.text_field :last_name, class: 'form-control' %>
+        <%= f.text_field :last_name, class: 'form-control', required: true %>
       </div>
       <div class="form-group col">
         <%= f.label :email %><br />
-        <%= f.email_field :email, autocomplete: "email", class: 'form-control' %>
+        <%= f.email_field :email, autocomplete: "email", class: 'form-control', required: true %>
       </div>
     </div>
     <div class="row form-row">
@@ -24,7 +24,7 @@
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+        <%= f.password_field :password, autocomplete: "new-password", class: 'form-control', required: true %>
       </div>
 
       <div class="field form-group col">
