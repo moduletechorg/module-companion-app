@@ -73,7 +73,7 @@ class LandsController < ApplicationController
   def destroy
     @land = Land.find(params[:id])
     @land.destroy
-    redirect_to lands_index_path
+    redirect_to lands_path
   end
 
   def delete_image
