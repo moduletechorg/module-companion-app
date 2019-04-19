@@ -7,7 +7,7 @@
 
 <div class="container">
   <%= render 'button_nav' %>
-  
+
   <section class="lot-info">
     <div class="double-header text-center">
       <h2 class="title"><%= @land.address %></h2>
@@ -90,7 +90,9 @@
           </div>
         </div>
       </div> -->
-
+      <div class="lot-info-section">
+        <%= render 'contact_form.html.erb', cf: @contact_form %>
+      </div>
     </div>
   </section>
 </div>
