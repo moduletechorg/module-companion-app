@@ -27,6 +27,9 @@ gem 'figaro'
 # Use AWS S3 for storage
 gem 'aws-sdk'
 
+# Send form submissions to Email using mail_form
+gem 'mail_form'
+
 # Styling
 # Bootstrap for initial styling and autoprefix for browser compatibility
 gem 'bootstrap', '~> 4.2.1'

@@ -45,6 +45,7 @@ class LandsController < ApplicationController
     @neighborhood = Neighborhood.find(@land.neighborhood_id)
     @nearby_locations_10 = NearbyLocation.where("land_id" => @land.id, "within_10" => true)
     @nearby_locations_mi = NearbyLocation.where("land_id" => @land.id, "within_mile" => true)
+    @contact_form = ContactForm.new(name: "#{current_user.first_name} #{current_user.last_name}", email: current_user.email)
   end
 
   def edit
