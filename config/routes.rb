@@ -35,4 +35,7 @@ Rails.application.routes.draw do
 
   get 'other_lots', action: :other_lots, controller: 'lands'
 
+  resources :contact_forms do
+  end
+
 end
