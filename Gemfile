@@ -32,7 +32,7 @@ gem 'mail_form'
 
 # Styling
 # Bootstrap for initial styling and autoprefix for browser compatibility
-gem 'bootstrap', '~> 4.2.1'
+gem 'bootstrap', '>= 4.3.1'
 gem 'autoprefixer-rails'
 # Use jquery for frontend, needed for Bootstrap
 gem 'jquery-rails'
