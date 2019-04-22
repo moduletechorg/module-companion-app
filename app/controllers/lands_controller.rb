@@ -64,7 +64,7 @@ class LandsController < ApplicationController
     if @land.update_attributes(land_params)
       flash[:success] = "Lot has been updated."
       @neighborhood = Neighborhood.find(@land.neighborhood_id)
-      render 'show'
+      redirect_to land_path(@land)
     else
       render 'edit'
     end
