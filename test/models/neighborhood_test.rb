@@ -2,7 +2,7 @@ require 'test_helper'
 
 class NeighborhoodTest < ActiveSupport::TestCase
   def setup
-      @neighborhood = neighborhoods(:eastliberty)
+      @neighborhood = FactoryBot.create(:neighborhood)
   end
 
   test 'valid neighborhood' do

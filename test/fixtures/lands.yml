@@ -3,17 +3,7 @@
 one:
   address: 123 Street Road
   neighborhood: eastliberty
-  acreage: 1.5
-  size: 20 x 100
-  pricing: 50000.00
-  zoning_declaration: R1
-  land_type: exclusive
 
 two:
   address: 456 Boulevard Avenue
   neighborhood: lawrenceville
-  acreage: 1.5
-  size: 30 x 100
-  pricing: 50000.00
-  zoning_declaration: R2
-  land_type: ready

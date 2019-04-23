@@ -4,8 +4,8 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   def setup
-    @admin = users(:admin_user)
-    @nonadmin = users(:not_admin_user)
+    @admin = FactoryBot.create(:user, admin: true)
+    @nonadmin = FactoryBot.create(:user)
   end
 
   test "should get index if admin" do
