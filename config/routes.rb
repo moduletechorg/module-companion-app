@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   match 'neighborhoods/:id/edit/delete_image/:attachment_id', to:'neighborhoods#delete_image', via: 'get', as: 'delete_neighborhood_image'
   match 'lands/:id/edit/delete_image/:attachment_id', to:'lands#delete_image', via: 'get', as: 'delete_land_image'
 
-  root to: 'lands#index'
+  devise_scope :user do
+    root to: "devise/sessions#new"
+  end
 
   resources :neighborhoods do
     resources :lands, only: [:index, :new]
