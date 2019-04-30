@@ -18,7 +18,6 @@ class ApplicationController < ActionController::Base
 
     def user_logged_in?
       if !(user_signed_in?)
-        flash[:warning] = "You must be logged in for access"
         redirect_to new_user_session_path
       end
     end
