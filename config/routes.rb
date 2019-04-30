@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   match 'lands/:id/edit/delete_image/:attachment_id', to:'lands#delete_image', via: 'get', as: 'delete_land_image'
 
   devise_scope :user do
+    match '', to: 'devise/sessions#new', via: 'get'
     root to: "devise/sessions#new"
   end
 
