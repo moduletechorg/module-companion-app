@@ -91,6 +91,16 @@ hr {
   border-width: 1px;
 }
 
+a {
+  transition: all 0.15s linear;
+  color: #0A2240;
+  text-decoration: none;
+}
+a:hover {
+    color: #CC5B53;
+    text-decoration: none;
+  }
+
 .double-header .title {
     display: inline-block;
     margin: 0 auto !important;

@@ -7,25 +7,27 @@
     <div class="row">
   <% end %>
   <div class="exclusive-lot col">
-    <% if land.images.attached? %>
-      <div>
-        <%= image_tag land.images.first, class: 'img-fluid u-center-block ready-lot-image' %>
+    <%= link_to(land_path(land)) do %>
+      <% if land.images.attached? %>
+        <div>
+          <%= image_tag land.images.first, class: 'img-fluid u-center-block ready-lot-image' %>
+        </div>
+      <% end %>
+      <div class="ready-lot-info">
+        <div>
+          <b>Address</b>
+          <p><%= land.address %><br />
+             <%= land.neighborhood.city_state_name%></p>
+        </div>
+        <div>
+          <b>Neighborhood</b>
+          <p><%= land.neighborhood.name %></p>
+        </div>
+      </div>
+      <div class="ready-lot-learn-more">
+        <%= link_to "Learn More", land_path(land), class: 'btn btn-outline-black' %>
       </div>
     <% end %>
-    <div class="ready-lot-info">
-      <div>
-        <b>Address</b>
-        <p><%= land.address %><br />
-           <%= land.neighborhood.city_state_name%></p>
-      </div>
-      <div>
-        <b>Neighborhood</b>
-        <p><%= land.neighborhood.name %></p>
-      </div>
-    </div>
-    <div class="ready-lot-learn-more">
-      <%= link_to "Learn More", land_path(land), class: 'btn btn-outline-black' %>
-    </div>
   </div>
   <% num_lots += 1 %>
 <% end %>
