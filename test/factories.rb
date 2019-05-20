@@ -6,7 +6,7 @@ FactoryBot.define do
     password { "password" }
     password_confirmation { "password" }
     confirmed_at { Date.today }
-    admin false
+    admin { false }
     housing_option { "option" }
     state { Faker::Address.state_abbr }
     city { Faker::Address.city }

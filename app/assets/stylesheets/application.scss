@@ -204,8 +204,12 @@ input[type="submit"],
     border-width: 2px; }
 
 .btn-outline-black {
-border: 3px solid #0A2240;
-color: #0A2240; }
+  border: 3px solid #0A2240;
+  color: #0A2240; }
 .btn-outline-black:hover {
-background-color: #0A2240;
-color: white; }
+  background-color: #0A2240;
+  color: white; }
+
+.edit-user-container {
+  max-width: 70%
+}
