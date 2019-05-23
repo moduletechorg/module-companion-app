@@ -1,6 +1,5 @@
 class Land < ApplicationRecord
   belongs_to :neighborhood
-  # belongs_to :land_type
   validates :address, :neighborhood, presence: true
   # validates :parcel_id,
   #   format: {

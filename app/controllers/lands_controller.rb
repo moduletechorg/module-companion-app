@@ -1,6 +1,10 @@
+require 'rmagick'
+include Magick
+
 class LandsController < ApplicationController
   before_action :user_is_admin?, only: [:new, :edit, :destroy]
   before_action :user_logged_in?, only: [:show, :index]
+  before_action :check_image_dimensions, only: [:update]
 
   def index
     @lands = Land.all
@@ -91,7 +95,7 @@ class LandsController < ApplicationController
   private
 
     def land_params
-      params.require(:land).permit(:address, :neighborhood_id, :land_type_id, :mapframe, :why_we_like_it, :nearby_locations, images: [])
+      params.require(:land).permit(:land, :address, :neighborhood_id, :land_type_id, :mapframe, :why_we_like_it, :nearby_locations, images: [])
     end
 
 
@@ -106,8 +110,6 @@ class LandsController < ApplicationController
       end
 
       locs = locations.split(/\n/)
-
-      puts "\n\n\nBegin creating locations\n"
       locs.each do |loc|
         puts loc
         new_loc = NearbyLocation.new
@@ -117,5 +119,35 @@ class LandsController < ApplicationController
         new_loc.within_mile = within_mi
         new_loc.save
       end
+    end
+
+    def check_image_dimensions
+      image_path = params[:land][:images].first.path
+      #image = Magick::Image.from_blob(image_blob)
+      image = Magick::ImageList.new
+      bin = File.open(image_path, 'r'){ |file| file.read }
+      img = image.from_blob(bin)
+      img_width = img.columns * 1.0
+      img_height = img.rows * 1.0
+
+
+      err_message = ""
+      err = false
+
+      if img_width < 300
+        err = true
+      end
+      if img_height < 200
+        err = true
+      end
+      if ((img_height / img_width) != (2/3))
+        err = true
+      end
+
+      if err
+        flash[:danger] = "Image must be a minimum of 200 pixels tall and 300 pixels wide with a 2:3 height to width aspect ratio."
+        redirect_to edit_land_path(params[:id])
+      end
+
     end
 end
