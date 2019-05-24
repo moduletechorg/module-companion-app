@@ -122,31 +122,33 @@ class LandsController < ApplicationController
     end
 
     def check_image_dimensions
-      image_path = params[:land][:images].first.path
-      #image = Magick::Image.from_blob(image_blob)
-      image = Magick::ImageList.new
-      bin = File.open(image_path, 'r'){ |file| file.read }
-      img = image.from_blob(bin)
-      img_width = img.columns * 1.0
-      img_height = img.rows * 1.0
+      if params[:land][:images]
+        image_path = params[:land][:images].first.path
+        #image = Magick::Image.from_blob(image_blob)
+        image = Magick::ImageList.new
+        bin = File.open(image_path, 'r'){ |file| file.read }
+        img = image.from_blob(bin)
+        img_width = img.columns * 1.0
+        img_height = img.rows * 1.0
 
 
-      err_message = ""
-      err = false
+        err_message = ""
+        err = false
 
-      if img_width < 300
-        err = true
-      end
-      if img_height < 200
-        err = true
-      end
-      if ((img_height / img_width) != (2/3))
-        err = true
-      end
+        if img_width < 300
+          err = true
+        end
+        if img_height < 200
+          err = true
+        end
+        if ((img_height / img_width) != (2/3))
+          err = true
+        end
 
-      if err
-        flash[:danger] = "Image must be a minimum of 200 pixels tall and 300 pixels wide with a 2:3 height to width aspect ratio."
-        redirect_to edit_land_path(params[:id])
+        if err
+          flash[:danger] = "Image must be a minimum of 200 pixels tall and 300 pixels wide with a 2:3 height to width aspect ratio."
+          redirect_to edit_land_path(params[:id])
+        end
       end
 
     end

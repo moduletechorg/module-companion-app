@@ -16,6 +16,17 @@
 *= require_tree .
 */
 
+$theme-colors: (
+  primary: #0A2240,
+  secondary: #969CA5,
+  success: #5DAE9F,
+  info: #65B0CB,
+  warning: #F1897B,
+  danger: #CA6282,
+  light: #F0F2F6,
+  dark: #707680,
+) !default;
+
 @import "bootstrap";
 
 @font-face {

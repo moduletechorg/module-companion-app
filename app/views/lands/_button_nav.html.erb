@@ -1,6 +1,16 @@
+<%
+  approved_active = ""
+  other_lots_active = ""
+  if current_page?(:controller => 'lands', :action => 'other_lots')
+    other_lots_active = " active"
+  else
+    approved_active = " active"
+  end
+%>
+
 <!-- Button nav -->
-<div class="btn-group lots-nav-btn-group" role="group" aria-label="Land Navigation">
-  <%= link_to "Module Approved Lots", lands_path, class: "btn btn-primary" %>
-  <%= link_to "Other Lots We Like", other_lots_path, class: "btn btn-primary" %>
+<div class="lots-nav-btn-group" role="group" aria-label="Land Navigation">
+  <%= link_to "Module Approved Lots", lands_path, class: "btn btn-success lots-nav-btn#{approved_active}" %>
+  <%= link_to "Other Lots We Like", other_lots_path, class: "btn btn-success lots-nav-btn #{other_lots_active}" %>
 </div>
 <!-- end button nav -->
