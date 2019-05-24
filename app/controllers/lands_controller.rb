@@ -90,6 +90,7 @@ class LandsController < ApplicationController
   end
 
   def other_lots
+    @contact_form = ContactForm.new
   end
 
   private
