@@ -4,7 +4,7 @@ include Magick
 class LandsController < ApplicationController
   before_action :user_is_admin?, only: [:new, :edit, :destroy]
   before_action :user_logged_in?, only: [:show, :index]
-  before_action :check_image_dimensions, only: [:update]
+  #before_action :check_image_dimensions, only: [:update]
 
   def index
     @lands = Land.all
