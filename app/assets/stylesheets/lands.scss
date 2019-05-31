@@ -64,12 +64,6 @@
   padding-bottom: 2em;
 }
 
-.lot-info {
-  @media only screen and (max-width: 770px) {
-    flex-direction: column;
-  }
-}
-
 .lot-blurb {
   max-width: 65%;
 }
@@ -134,7 +128,10 @@
 }
 
 @media only screen and (max-width: 770px){
-  .lots-container{
+  .lots-container {
+    flex-direction: column;
+  }
+  .lot-details {
     flex-direction: column;
   }
   .exclusive-lot {
@@ -142,5 +139,11 @@
   }
   .lots-nav-btn-group {
     flex-direction: column;
+  }
+  .locations-nearby-container {
+    flex-direction: column;
+  }
+  .locations-nearby {
+    max-width: 100%;
   }
 }
