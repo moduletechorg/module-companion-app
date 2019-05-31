@@ -25,7 +25,7 @@
       <% end %>
       <!-- End lot images -->
       <div class="lot-info-section lot-details">
-        <div>
+        <div class="lot-details-section">
           <h3>Location</h3>
           <hr>
           <br />
@@ -38,7 +38,7 @@
             <p><%= @land.address %></p>
           </div>
         </div>
-        <div class="lot-blurb">
+        <div class="lot-blurb lot-details-section">
           <h3>Why We Like It</h3>
           <hr>
           <p><%= @land.why_we_like_it %></p>
@@ -47,12 +47,10 @@
       <div class="lot-info-section">
         <h2>What's Close By</h2>
         <div class="line-break"></div>
-        <div>
-          <div class="overlay" onclick="style.pointerEvents='none'"></div>
-          <% if @land.mapframe %>
-             <iframe class="land-iframe" frameborder="0" style="border:0" src=<%= @land.mapframe %> allowfullscreen></iframe>
-          <% end %>
-        </div>
+        <div class="overlay" onclick="style.pointerEvents='none'"></div>
+        <% if @land.mapframe %>
+           <iframe class="land-iframe" frameborder="0" style="border:0" src=<%= @land.mapframe %> allowfullscreen></iframe>
+        <% end %>
       </div>
       <div class="lot-info-section locations-nearby-container">
         <% if @nearby_locations_10 %>

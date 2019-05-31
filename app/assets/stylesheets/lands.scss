@@ -137,13 +137,8 @@
 }
 
 .land-iframe {
-  width: 70vw;
-  height: 40vw;
-
-  @media only screen and (max-width: 450px) {
-    width: 100%;
-    height: 60vh;
-  }
+  width: 100%;
+  height: 60vh;
 }
 
 @media only screen and (max-width: 770px){
@@ -163,6 +158,9 @@
     flex-direction: column;
   }
   .locations-nearby {
+    max-width: 100%;
+  }
+  .lot-details-section {
     max-width: 100%;
   }
 }
