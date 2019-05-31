@@ -2,7 +2,7 @@
 <% num_lots = 0 %>
 <% @lands.each do |land| %>
   <% if num_lots % 3 == 0 %>
-    
+
   <% end %>
   <div class="exclusive-lot">
     <%= link_to(land_path(land)) do %>
@@ -23,7 +23,7 @@
         </div>
       </div>
       <div class="ready-lot-learn-more">
-        <%= link_to "Learn More", land_path(land), class: 'btn btn-outline-black' %>
+        <div class="btn btn-outline-black">Learn More</div>
       </div>
     </div>
     <% end %>
