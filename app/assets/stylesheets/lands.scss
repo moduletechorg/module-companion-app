@@ -25,6 +25,25 @@
 .exclusive-lot{
   margin: 1em;
   max-width: 40%;
+  padding: 1em;
+  border-radius: 1em;
+}
+
+.exclusive-lot:hover {
+  background-color: #0A2240;
+
+  a {
+    color: white;
+  }
+
+  .ready-lot-learn-more{
+    background-color: #0A2240;
+    color: white;
+  }
+}
+
+.exclusive-lot a:hover {
+  color: white;
 }
 
 .ready-lot-image{
