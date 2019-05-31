@@ -23,13 +23,13 @@
   <div class="col">
     <%= f.label "Where do you plan to build your next home?" %>
     <div class="row">
-      <div class="col-3">
+      <div class="col-4">
         <div class="form-group">
           <%= f.label :state %>
           <%= f.select :state, options_for_select(us_states, "PA"), { :selected => "PA" }, { class: "form-control" } %>
         </div>
       </div>
-      <div>
+      <div class="col">
         <div class="form-group">
           <%= f.label :city %>
           <%= f.text_field :city, class: "form-control" %>
