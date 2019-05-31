@@ -1,12 +1,10 @@
 <div class="lots-container">
 <% num_lots = 0 %>
-<div class="row">
 <% @lands.each do |land| %>
   <% if num_lots % 3 == 0 %>
-    </div>
-    <div class="row">
+    
   <% end %>
-  <div class="exclusive-lot col">
+  <div class="exclusive-lot">
     <%= link_to(land_path(land)) do %>
       <% if land.images.attached? %>
         <div>
@@ -27,7 +25,8 @@
       <div class="ready-lot-learn-more">
         <%= link_to "Learn More", land_path(land), class: 'btn btn-outline-black' %>
       </div>
+    </div>
     <% end %>
-  </div>
   <% num_lots += 1 %>
 <% end %>
+</div>

@@ -24,7 +24,7 @@
         </div>
       <% end %>
       <!-- End lot images -->
-      <div class="lot-info-section">
+      <div class="lot-info-section lot-info">
         <div>
           <h3>Location</h3>
           <hr>
@@ -50,7 +50,7 @@
         <div>
           <div class="overlay" onclick="style.pointerEvents='none'"></div>
           <% if @land.mapframe %>
-             <iframe height="450" width="640" frameborder="0" style="border:0" src=<%= @land.mapframe %> allowfullscreen></iframe>
+             <iframe class="land-iframe" frameborder="0" style="border:0" src=<%= @land.mapframe %> allowfullscreen></iframe>
           <% end %>
         </div>
       </div>

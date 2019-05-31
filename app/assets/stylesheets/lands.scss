@@ -17,19 +17,14 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
   align-content: center;
   margin-bottom: 5em;
 }
 
-.ready-lot{
-  margin: 1em;
-  max-width: 45%;
-}
-
 .exclusive-lot{
   margin: 1em;
-  max-width: 30%;
+  max-width: 40%;
 }
 
 .ready-lot-image{
@@ -69,6 +64,12 @@
   padding-bottom: 2em;
 }
 
+.lot-info {
+  @media only screen and (max-width: 770px) {
+    flex-direction: column;
+  }
+}
+
 .lot-blurb {
   max-width: 65%;
 }
@@ -78,7 +79,8 @@
 }
 
 .lot-info-image {
-  max-height: 60vh;
+  max-height: 60vw;
+  max-width: 90vw;
   margin-bottom: 1em;
 }
 
@@ -114,8 +116,31 @@
   margin-bottom: 2em;
   display: flex !important;
   justify-content: center;
+  flex-direction: row;
 }
 
 .locations-nearby {
   max-width: 45%;
+}
+
+.land-iframe {
+  width: 70vw;
+  height: 40vw;
+
+  @media only screen and (max-width: 450px) {
+    width: 100%;
+    height: 60vh;
+  }
+}
+
+@media only screen and (max-width: 770px){
+  .lots-container{
+    flex-direction: column;
+  }
+  .exclusive-lot {
+    max-width: 100%;
+  }
+  .lots-nav-btn-group {
+    flex-direction: column;
+  }
 }

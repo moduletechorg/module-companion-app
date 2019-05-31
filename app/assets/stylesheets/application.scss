@@ -222,5 +222,9 @@ input[type="submit"],
   color: white; }
 
 .edit-user-container {
-  max-width: 70%
+  max-width: 70%;
+
+  @media only screen and (max-width: 770px){
+    max-width: 100%;
+  }
 }
