@@ -34,8 +34,25 @@
     <%= render 'info_form', f: f %>
     <div class="row">
       <div class="col">
+        <div class="field form-group form-check">
+          <%= f.check_box :valid_age, checked_value: true, class: 'form-check-input', required: true %>
+          <%= f.label :valid_age, "I am 18 years or older", class: 'form-check-label' %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="field form-group form-check">
+          <%= f.check_box :terms_agreement, checked_value: true, class: 'form-check-input', required: true %>
+          <label for="user_terms_agreement">I agree to the <a target='_blank' href='https://modulehousing.com/terms-of-service/' style="text-decoration: underline;">terms of service</a> and <a target='_blank' href='https://modulehousing.com/privacy-policy/' style="text-decoration: underline;">privacy policy</a></label>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col">
         <div class="actions">
-          <%= f.submit "Create Account", class: 'form-group btn btn-success', disabled: true %>
+          <%= f.submit "Create Account", class: 'form-group btn btn-success' %>
         </div>
       </div>
     </div>
