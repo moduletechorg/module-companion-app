@@ -44,7 +44,49 @@
       <div class="col">
         <div class="field form-group form-check">
           <%= f.check_box :terms_agreement, checked_value: true, class: 'form-check-input', required: true %>
-          <label for="user_terms_agreement">I agree to the <a target='_blank' href='https://modulehousing.com/terms-of-service/' style="text-decoration: underline;">terms of service</a> and <a target='_blank' href='https://modulehousing.com/privacy-policy/' style="text-decoration: underline;">privacy policy</a></label>
+          <label for="user_terms_agreement">I agree to the <a data-toggle="modal" data-target="#termsOfServiceModal" style="text-decoration: underline;">terms of service</a> and <a data-toggle="modal" data-target="#privacyPolicyModal" style="text-decoration: underline;">privacy policy</a></label>
+
+
+          <!-- Terms of Service Modal -->
+          <div class="modal fade" id="termsOfServiceModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Terms of Service</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <%= render 'terms_of_service' %>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Privacy Policy Modal -->
+          <div class="modal fade" id="privacyPolicyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Privacy Policy</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <%= render 'privacy_policy' %>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
