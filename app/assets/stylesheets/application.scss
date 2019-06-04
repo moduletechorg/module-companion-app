@@ -149,12 +149,6 @@ a:hover {
   padding: 2em;
 }
 
-.footer {
-  padding-top: 4em;
-  margin-bottom: 2em;
-  background-color: lightgrey;
-}
-
 .flex-container-row {
   display: flex;
   flex-direction: row;
@@ -248,7 +242,12 @@ input[type="submit"].btn-small,
   max-width: 75%;
 }
 
+main {
+  padding-bottom: 5em;
+}
+
 footer {
+  height: 5em;
   position: absolute;
   width: 100%;
   background-color: #0A2240;
