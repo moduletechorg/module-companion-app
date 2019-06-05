@@ -7,7 +7,7 @@ class LandsController < ApplicationController
   #before_action :check_image_dimensions, only: [:update]
 
   def index
-    @lands = Land.all
+    @lands = Land.all.order('created_at DESC')
     @land_type = nil
     @neigbhorhood = nil
     @filtered = false
