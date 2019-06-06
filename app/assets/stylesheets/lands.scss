@@ -163,3 +163,22 @@
     max-width: 100%;
   }
 }
+
+
+.overlay {
+  margin-top: -5em;
+  height: 4em;
+  background: rgb(10, 34, 64);
+  background: rgba(10, 34, 64, 0.5); /* Black see-through */
+  color: #f1f1f1;
+  max-width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  padding: 1em;
+  text-align: center;
+}
+
+.ready-lot-images-container:hover .overlay {
+    opacity: 1;
+}
