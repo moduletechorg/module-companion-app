@@ -10,8 +10,9 @@ class User < ApplicationRecord
           :confirmable
   has_and_belongs_to_many :location_perks
   has_and_belongs_to_many :features
-  validates_confirmation_of :password
+  has_many :visits, class_name: "Ahoy::Visit"
 
+  validates_confirmation_of :password
   validates :email,
             :first_name,
             :last_name,

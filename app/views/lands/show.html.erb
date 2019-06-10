@@ -3,6 +3,11 @@
   <%= link_to "Remove Land Lot", land_path(@land),
       method: :delete,
       class: 'btn btn-danger' %>
+  <br /><br />
+  <div>
+    <b>Lot stats</b> <br />
+    Total visits: <%= @land.total_visits %>
+  </div>
 <% end %>
 
 <div class="container">

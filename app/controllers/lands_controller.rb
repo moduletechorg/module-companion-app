@@ -5,6 +5,7 @@ class LandsController < ApplicationController
   before_action :user_is_admin?, only: [:new, :edit, :destroy]
   before_action :user_logged_in?, only: [:show, :index]
   #before_action :check_image_dimensions, only: [:update]
+  after_action :track_lot, only: [:show]
 
   def index
     @lands = Land.all.order('created_at DESC')
@@ -152,5 +153,11 @@ class LandsController < ApplicationController
         end
       end
 
+    end
+
+    def track_lot
+      @land.total_visits += 1
+      @land.save
+      ahoy.track "Viewed Lot", request.path_parameters
     end
 end

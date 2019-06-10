@@ -30,6 +30,9 @@ gem 'aws-sdk'
 # Send form submissions to Email using mail_form
 gem 'mail_form'
 
+# Ahoy for user analytics
+gem 'ahoy_matey'
+
 # Styling
 # Bootstrap for initial styling and autoprefix for browser compatibility
 gem 'bootstrap', '>= 4.3.1'
