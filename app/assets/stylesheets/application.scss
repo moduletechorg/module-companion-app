@@ -34,10 +34,13 @@ $theme-colors: (
   src: url('/assets/stylesheets/neuhaas.css');
 }
 
+$breakpoint-tablet: 767px;
+$breakpoint-phone: 575px;
+
 .row {
   align-items: flex-end;
 
-  @media only screen and (max-width: 575px){
+  @media only screen and (max-width: $breakpoint-phone){
     flex-direction: column;
   }
 }
@@ -129,7 +132,7 @@ a:hover {
     color: #0A2240;
     width: auto;
 
-    @media only screen and (max-width: 767px){
+    @media only screen and (max-width: $breakpoint-tablet){
       font-size: 2rem;
     }
 }
@@ -228,7 +231,7 @@ input[type="submit"].btn-small,
   color: white; }
 
 
-@media only screen and (max-width: 767px){
+@media only screen and (max-width: $breakpoint-tablet){
   .nav-external-links {
     display: none;
   }
