@@ -32,6 +32,8 @@ gem 'mail_form'
 
 # Ahoy for user analytics
 gem 'ahoy_matey'
+# Blazer for analytics dashboard
+gem 'blazer'
 
 # Styling
 # Bootstrap for initial styling and autoprefix for browser compatibility

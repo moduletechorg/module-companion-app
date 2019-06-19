@@ -7,7 +7,8 @@ class User < ApplicationRecord
           :recoverable,
           :rememberable,
           :validatable,
-          :confirmable
+          :confirmable,
+          :trackable
   has_and_belongs_to_many :location_perks
   has_and_belongs_to_many :features
   has_many :visits, class_name: "Ahoy::Visit"

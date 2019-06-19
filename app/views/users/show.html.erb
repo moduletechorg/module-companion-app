@@ -2,7 +2,18 @@
   <%= link_to "Grant Admin Priveleges",  make_admin_path(@user), class: 'btn btn-success' %>
 <% end %>
 <div class="container">
-  <h2><%= @user.email %></h2>
+  <div>
+    <h2><%= "#{@user.first_name} #{@user.last_name}" %></h2>
+    <p><%= "#{@user.email}" %></p>
+  </div>
+  <% if current_user.admin %>
+    <div>
+      <p>
+        Last Logged In: <%= @user.last_sign_in_at.to_formatted_s(:long_ordinal) %><br />
+        Times Logged In: <%= @user.sign_in_count %>
+      </p>
+    </div>
+  <% end %>
   <div>
     <% if current_user.email == @user.email %>
       <%= link_to 'Edit Profile', edit_user_registration_path(current_user), class: 'btn btn-info' %>
