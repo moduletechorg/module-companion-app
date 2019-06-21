@@ -6,7 +6,7 @@
   <br /><br />
   <div>
     <b>Lot stats</b> <br />
-    Total visits: <%= @land.total_visits %>
+    Total visits: <%= Ahoy::Event.where_event("Viewed Lot", id: @land.id.to_s).count %>
   </div>
 <% end %>
 

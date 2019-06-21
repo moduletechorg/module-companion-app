@@ -156,8 +156,6 @@ class LandsController < ApplicationController
     end
 
     def track_lot
-      @land.total_visits += 1
-      @land.save
       ahoy.track "Viewed Lot", request.path_parameters
     end
 end
