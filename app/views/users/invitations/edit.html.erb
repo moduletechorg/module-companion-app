@@ -1,16 +1,26 @@
-<h2><%= t 'devise.invitations.edit.header' %></h2>
+<div class="jumbotron container">
+  <h2>Finish Account Setup</h2>
 
-<%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :invitation_token, readonly: true %>
+  <%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f| %>
+    <%= devise_error_messages! %>
+    <%= f.hidden_field :invitation_token, readonly: true %>
 
-  <% if f.object.class.require_password_on_accepting %>
-  <p><%= f.label :password %><br />
-  <%= f.password_field :password, class: 'form-control' %></p>
+    <% if f.object.class.require_password_on_accepting %>
+    <div class="row">
+      <div class="form-group col">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, class: 'form-control', required: true %>
+      </div>
 
-  <p><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation , class: 'form-control'%></p>
+      <div class="form-group col">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation , class: 'form-control', required: true %>
+      </div>
+    </div>
+    <% end %>
+
+    <%= render 'devise/registrations/info_form', f: f %>
+    <%= render 'devise/registrations/user_terms', f: f %>
+    <p><%= f.submit "Confirm Account", class: 'form-group btn btn-success' %></p>
   <% end %>
-
-  <p><%= f.submit t("devise.invitations.edit.submit_button") %></p>
-<% end %>
+</div>
