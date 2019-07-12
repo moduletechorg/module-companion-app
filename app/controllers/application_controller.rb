@@ -34,6 +34,14 @@ class ApplicationController < ActionController::Base
       u.require(:password_confirmation)
       u.permit(:first_name, :last_name, :email, :password, :password_confirmation, :housing_option, :state, :city, :preferred_bedroom, :preferred_bathroom, :move_in_time, :budget, :pre_approved_mortgage, :first_name, :last_name, :terms_agreement, :valid_age, :feedback, location_perk_ids: [], feature_ids: [] ) }
 
+      devise_parameter_sanitizer.permit(:accept_invitation) { |u|
+      u.require(:first_name)
+      u.require(:last_name)
+      u.require(:email)
+      u.require(:password )
+      u.require(:password_confirmation)
+      u.permit(:first_name, :last_name, :email, :password, :password_confirmation, :housing_option, :state, :city, :preferred_bedroom, :preferred_bathroom, :move_in_time, :budget, :pre_approved_mortgage, :first_name, :last_name, :terms_agreement, :valid_age, :feedback, :invitation_token, location_perk_ids: [], feature_ids: [] ) }
+
       devise_parameter_sanitizer.permit(:account_update) { |u| u.require(:first_name)
       u.require(:last_name)
       u.require(:email)
