@@ -21,6 +21,8 @@ task :download_user_info => :environment do
     users.each do |u|
       user_events = Ahoy::Event.where(["user_id = ? and name = 'Viewed Lot'", u])
 
+      puts user.email
+      puts user.id
       line = [u.first_name, u.last_name, u.email, u.state, u.city, u.housing_option, u.preferred_bedroom, u.preferred_bathroom, u.move_in_time, u.budget, u.feedback, u.sign_in_count, u.last_sign_in_at]
 
       user_events.each do |visit|
