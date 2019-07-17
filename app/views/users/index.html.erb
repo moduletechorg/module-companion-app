@@ -6,15 +6,68 @@
 
   <h2 class="text-center">Users</h2>
   <ul class="list-group">
+    <div class="list-group-item">
+      <div class="row">
+        <div class="col"><strong>Name</strong></div>
+        <div class="col"><strong>Option</strong></div>
+        <div class="col-1"><strong>Bedrooms</strong></div>
+        <div class="col-1"><strong>Bathrooms</strong></div>
+        <div class="col-1"><strong>Max Budget</strong></div>
+        <div class="col"><strong>Timeline</strong></div>
+        <div class="col-1"><strong>Pre-approved</strong></div>
+        <div class="col-1"><strong>Feedback</strong></div>
+        <div class="col-1"><strong>Member Since</strong></div>
+        <div class="col-1"><strong>Account</strong></div>
+      </div>
+    </div>
     <% @users.each do |user| %>
       <li class="list-group-item">
-        <%= link_to "#{user.first_name} #{user.last_name} #{user.email}", user_path(user) %>
-        <% if user.admin? %>
-          <span class="badge badge-primary badge-pill">Admin</span>
-        <% end %>
-        <% if current_user.admin? && current_user != user %>
-          <span class="badge badge-warning badge-pill"><%= link_to "Sign in as #{user.email}", impersonate_user_path(user), method: :post %></li></span>
-        <% end %>
+        <div class="row">
+          <div class="col">
+            <%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %>
+            <% if user.admin? %>
+              <span class="badge badge-primary badge-pill">Admin</span>
+            <% end %>
+          </div>
+          <div class="col">
+            <span><%= user.housing_option %></span>
+          </div>
+          <div class="col-1">
+            <span><%= user.preferred_bedroom %></span>
+          </div>
+          <div class="col-1">
+            <span><%= user.preferred_bathroom %></span>
+          </div>
+          <div class="col-1">
+            <% if user.budget %>
+            <span><%= "$#{user.budget}K" %></span>
+            <% end %>
+          </div>
+          <div class="col">
+            <span><%= user.move_in_time %></span>
+          </div>
+          <div class="col-1">
+            <% if user.pre_approved_mortgage %>
+            <span>&#10004;</span>
+            <% end %>
+          </div>
+          <div class="col-1">
+            <% if user.feedback %>
+            <span>&#10004;</span>
+            <% end %>
+          </div>
+          <div class="col-1">
+            <%= user.created_at.to_date.to_formatted_s(:short) %>
+          </div>
+          <div class="col-1">
+            <% if current_user.admin? && current_user != user %>
+              <span class="badge badge-warning badge-pill"><%= link_to "Sign in as", impersonate_user_path(user), method: :post %></span>
+            <% end %>
+            <% if user.invitation_sent_at && ( user.invitation_accepted_at == nil ) %>
+              <span class="badge badge-info badge-pill">Pending Invitation</span>
+            <% end %>
+          </div>
+        </div>
       </li>
     <% end %>
   </ul>

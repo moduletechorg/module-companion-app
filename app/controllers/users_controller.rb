@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def index
     if current_user.admin?
-      @users = User.all
+      @users = User.all.order('last_name, first_name')
     else
       redirect_to edit_user_registration_path(current_user)
     end
