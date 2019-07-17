@@ -29,6 +29,7 @@ task :download_user_info => :environment do
 
       user_events.each do |visit|
         lot_id = "#{visit.properties['id']}".to_i
+        puts "Lot id: #{lot_id}; num_visits: #{lot_visits[lot_id]}"
         lot_visits[lot_id] += 1
       end
 
