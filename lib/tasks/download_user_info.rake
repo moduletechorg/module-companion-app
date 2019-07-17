@@ -28,7 +28,8 @@ task :download_user_info => :environment do
       line = [u.first_name, u.last_name, u.email, u.state, u.city, u.housing_option, u.preferred_bedroom, u.preferred_bathroom, u.move_in_time, u.budget, u.feedback, u.sign_in_count, u.last_sign_in_at]
 
       user_events.each do |visit|
-        lot_visits["#{visit.properties['id']}".to_i] += 1
+        lot_id = "#{visit.properties['id']}".to_i
+        lot_visits[lot_id] += 1
       end
 
       lot_visits.each do |lot, visit_count|
