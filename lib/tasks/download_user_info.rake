@@ -3,7 +3,7 @@ require 'devise'
 
 desc "Download user profile info and lot view info"
 task :download_user_info => :environment do
-  users = User.all.order('last_name, first_name')
+  users = User.all.order('id')
 
   headers = ["first_name", "last_name", "email", "state", "city", "housing_option", "bedroom", "bathroom", "timeline", "budget", "feedback", "sign_in_count", "last_sign_in_at"]
 
@@ -23,6 +23,7 @@ task :download_user_info => :environment do
 
       puts u.email
       puts u.id
+      puts "number of events: #{user_events.count}"
 
       line = [u.first_name, u.last_name, u.email, u.state, u.city, u.housing_option, u.preferred_bedroom, u.preferred_bathroom, u.move_in_time, u.budget, u.feedback, u.sign_in_count, u.last_sign_in_at]
 
