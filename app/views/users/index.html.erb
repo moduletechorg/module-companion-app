@@ -61,10 +61,14 @@
           </div>
           <div class="col-1">
             <% if current_user.admin? && current_user != user %>
-              <span class="badge badge-warning badge-pill"><%= link_to "Sign in as", impersonate_user_path(user), method: :post %></span>
+              <div class="row"><div class="col">
+                <span class="badge badge-warning badge-pill"><%= link_to "Sign in as", impersonate_user_path(user), method: :post %></span>
+              </div></div>
             <% end %>
             <% if user.invitation_sent_at && ( user.invitation_accepted_at == nil ) %>
-              <span class="badge badge-info badge-pill">Pending Invitation</span>
+              <div class="row"><div class="col">
+                <span class="badge badge-info badge-pill">Pending Invitation</span>
+              </div></div>
             <% end %>
           </div>
         </div>
