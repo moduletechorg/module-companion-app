@@ -27,10 +27,13 @@ task :download_user_info => :environment do
 
       line = [u.first_name, u.last_name, u.email, u.state, u.city, u.housing_option, u.preferred_bedroom, u.preferred_bathroom, u.move_in_time, u.budget, u.feedback, u.sign_in_count, u.last_sign_in_at]
 
+      puts lot_visits
       user_events.each do |visit|
         lot_id = "#{visit.properties['id']}".to_i
-        puts "Lot id: #{lot_id}; num_visits: #{lot_visits[lot_id]}"
-        lot_visits[lot_id] += 1
+        if lot_visits.key?(lot_id)
+          puts "Lot id: #{lot_id}; num_visits: #{lot_visits[lot_id]}"
+          lot_visits[lot_id] += 1
+        end
       end
 
       lot_visits.each do |lot, visit_count|
