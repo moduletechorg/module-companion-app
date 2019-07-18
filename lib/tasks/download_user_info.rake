@@ -30,9 +30,9 @@ task :download_user_info => :environment do
       puts lot_visits
       user_events.each do |visit|
         lot_id = "#{visit.properties['id']}".to_i
-        if lot_visits.key?(lot_id)
-          puts "Lot id: #{lot_id}; num_visits: #{lot_visits[lot_id]}"
+        if !(lot_visits[lot_id] == nil)
           lot_visits[lot_id] += 1
+          puts "Lot id: #{lot_id}; num_visits: #{lot_visits[lot_id]}"
         end
       end
 
