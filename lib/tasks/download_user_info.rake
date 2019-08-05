@@ -53,7 +53,7 @@ task :download_user_info => :environment do
   s3 = Aws::S3::Resource.new(region:'us-east-1')
 
   obj = s3.bucket(ENV['AWS_BUCKET']).object('userinfo.csv')
-  obj.upload_file(filename)
+  obj.upload_file(filename, options = {:acl => 'public-read'})
 
   puts obj.public_url
 
