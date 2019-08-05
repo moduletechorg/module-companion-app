@@ -17,7 +17,7 @@
         <div class="col"><strong>Timeline</strong></div>
         <div class="col-1"><strong>Pre-approved</strong></div>
         <div class="col-1"><strong>Feedback</strong></div>
-        <div class="col-1"><strong>Member Since</strong></div>
+        <div class="col-1"><strong>Login Count</strong></div>
         <div class="col-1"><strong>Account</strong></div>
       </div>
     </div>
@@ -58,7 +58,7 @@
             <% end %>
           </div>
           <div class="col-1">
-            <%= user.created_at.to_date.to_formatted_s(:short) %>
+            <%= user.sign_in_count %>
           </div>
           <div class="col-1">
             <% if current_user.admin? && current_user != user %>
