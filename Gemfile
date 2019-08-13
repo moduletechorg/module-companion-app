@@ -20,6 +20,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'devise'
 gem 'devise_invitable'
 gem 'pretender'
+gem 'recaptcha'
 
 # Figaro for hiding env vars
 gem 'figaro'
