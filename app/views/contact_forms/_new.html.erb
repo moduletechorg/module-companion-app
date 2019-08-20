@@ -1,24 +1,14 @@
 <div class="row">
   <div class="col">
-    <%= form_for @contact_form do |f| %>
-      <h3>Want more info? Send us a message below!</h3>
+    <%= form_for @contact_form, remote: true do |f| %>
+      <h3>Want more info? Click the button below!</h3>
       <%= render 'shared/error_messages', object: f.object %>
 
-      <div class="row">
-        <div class="form-group col">
-          <%= f.text_area :message, required: true, rows: 5, class: "form-control" %>
-        </div>
-      </div>
-
-      <% if @land %>
-        <%= f.hidden_field :lot_address, :value => land.address %>
-      <% else %>
-        <%= f.hidden_field :lot_address, :value => "other lots" %>
-      <% end %>
+      <%= f.hidden_field :lot_address, :value => land.address %>
 
       <div class="row">
         <div class="form-group col">
-          <%= f.submit "Submit", class: 'form-control btn btn-success' %>
+          <%= f.submit "Learn More", class: 'form-control btn btn-success', onclick: '$(this).val("Module will be in touch soon!"); $(this).addClass("disabled");' %>
         </div>
       </div>
 

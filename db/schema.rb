@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_19_180926) do
+ActiveRecord::Schema.define(version: 2019_08_20_155106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -146,13 +146,24 @@ ActiveRecord::Schema.define(version: 2019_06_19_180926) do
     t.index ["user_id", "feature_id"], name: "index_features_users_on_user_id_and_feature_id"
   end
 
+  create_table "feedbacks", force: :cascade do |t|
+    t.string "name"
+    t.string "icon_class"
+  end
+
   create_table "lands", force: :cascade do |t|
     t.string "address"
     t.bigint "neighborhood_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "mapframe"
+    t.text "nearby_mapframe"
     t.text "why_we_like_it"
+    t.integer "bedrooms"
+    t.float "bathrooms"
+    t.integer "sqft"
+    t.string "pricing"
+    t.string "location_mapframe"
+    t.string "model"
     t.index ["neighborhood_id"], name: "index_lands_on_neighborhood_id"
   end
 
@@ -186,6 +197,16 @@ ActiveRecord::Schema.define(version: 2019_06_19_180926) do
     t.datetime "updated_at", null: false
     t.text "mapframe"
     t.text "description"
+  end
+
+  create_table "user_land_feedbacks", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "land_id"
+    t.bigint "feedback_id"
+    t.boolean "active", default: false, null: false
+    t.index ["feedback_id"], name: "index_user_land_feedbacks_on_feedback_id"
+    t.index ["land_id"], name: "index_user_land_feedbacks_on_land_id"
+    t.index ["user_id"], name: "index_user_land_feedbacks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

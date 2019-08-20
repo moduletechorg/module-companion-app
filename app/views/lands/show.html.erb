@@ -55,8 +55,8 @@
         <h2>What's Close By</h2>
         <div class="line-break"></div>
         <div class="overlay" onclick="style.pointerEvents='none'"></div>
-        <% if @land.mapframe %>
-           <iframe class="land-iframe" frameborder="0" style="border:0" src=<%= @land.mapframe %> allowfullscreen></iframe>
+        <% if @land.nearby_mapframe %>
+           <iframe class="land-iframe" frameborder="0" style="border:0" src=<%= @land.nearby_mapframe %> allowfullscreen></iframe>
         <% end %>
       </div>
       <div class="lot-info-section locations-nearby-container">

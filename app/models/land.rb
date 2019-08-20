@@ -8,6 +8,9 @@ class Land < ApplicationRecord
   #   uniqueness: true
   has_many_attached :images
   has_many :nearby_locations, dependent: :destroy
+  has_many :user_land_feedbacks
+  has_many :users, through: :user_land_feedbacks
+  has_many :feedbacks, through: :user_land_feedbacks
   attr_accessor :nearby_locations_10, :nearby_locations_mi
 
   scope :neighborhood_filter, -> (neighborhood_id) { where("neighborhood_id = ?", neighborhood_id) if neighborhood_id.present? }

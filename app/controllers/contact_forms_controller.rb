@@ -10,9 +10,7 @@ class ContactFormsController < ApplicationController
     @contact_form.request = request
 
     if @contact_form.valid?
-      if @contact_form.deliver
-        redirect_to root_path
-      end
+       @contact_form.deliver
     else
       flash[:danger] = "Error sending: #{@contact_form.errors.full_messages}"
       redirect_to root_path

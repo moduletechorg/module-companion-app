@@ -1,0 +1,26 @@
+<div class="justify-content-lg-center">
+
+  <%= form_for @feedback do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+
+    <div class="row">
+      <div class="form-group col">
+        <%= label_tag(:name, 'Name') %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+      <div class="form-group col">
+        <%= label_tag(:icon_class, 'Icon Class') %>
+        <%= f.text_field :icon_class, class: 'form-control' %>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col">
+        <%= f.submit "Submit", class: 'form-control btn btn-success' %>
+      </div>
+    </div>
+
+  <% end %>
+
+</div>

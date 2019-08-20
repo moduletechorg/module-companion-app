@@ -1,0 +1,39 @@
+<% content_for :admin_console do %>
+  <%= link_to "Add a Feedback Option", new_feedback_path, class: 'btn btn-info text-white' %>
+<% end %>
+
+<div class="container">
+
+  <div class="double-header text-center">
+    <h2 class="text-center title">
+      Feedback Options
+    </h2>
+  </div>
+  <br />
+
+  <% if @feedbacks.blank? %>
+    <div class="text-center alert alert-warning lead">
+      There are no feedback options in the system.
+    </div>
+  <% else %>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Icon</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @feedbacks.each do |feedback| %>
+      <tr>
+        <td scope="row"><%= feedback.name %></td>
+        <td><i class='fas <%= "#{feedback.icon_class}" %> '></div></i>
+        <td><%= link_to "Edit", edit_feedback_path(feedback), class: 'btn btn-small btn-info' %>
+        <td><%= link_to "Delete", feedback_path(feedback), method: :delete, class: 'btn btn-small btn-danger' %>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% end %>

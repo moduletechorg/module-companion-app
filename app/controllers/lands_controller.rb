@@ -8,10 +8,12 @@ class LandsController < ApplicationController
   after_action :track_lot, only: [:show]
 
   def index
-    @lands = Land.all.order('created_at DESC')
+    @lands = Land.all.order("RANDOM()")
+    @feedback_options = Feedback.all
     @land_type = nil
     @neigbhorhood = nil
     @filtered = false
+    @contact_form = ContactForm.new(name: "#{current_user.first_name} #{current_user.last_name}", email: current_user.email)
 
     neighborhood_param = params.dig("land", "neighborhood_id")
     land_type_param = params.dig("land", "land_type_id")
@@ -97,7 +99,7 @@ class LandsController < ApplicationController
   private
 
     def land_params
-      params.require(:land).permit(:land, :address, :neighborhood_id, :land_type_id, :mapframe, :why_we_like_it, :nearby_locations, images: [])
+      params.require(:land).permit(:land, :address, :neighborhood_id, :land_type_id, :model, :bedrooms, :bathrooms, :sqft, :pricing, :location_mapframe, :nearby_mapframe, :why_we_like_it, :nearby_locations, images: [])
     end
 
 

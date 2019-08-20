@@ -39,4 +39,9 @@ Rails.application.routes.draw do
   resources :contact_forms do
   end
 
+  resources :feedbacks do
+  end
+
+  get 'user_land_feedbacks/toggleActive', to: 'user_land_feedbacks#toggleActive'
+
 end

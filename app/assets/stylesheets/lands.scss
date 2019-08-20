@@ -1,6 +1,7 @@
 
 $breakpoint-tablet: 767px;
 $breakpoint-phone: 575px;
+$breakpoint-desktop: 1200px;
 
 .line-break{
   width: 100%;
@@ -19,7 +20,7 @@ $breakpoint-phone: 575px;
 
 .lots-container{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
@@ -28,25 +29,9 @@ $breakpoint-phone: 575px;
 
 .exclusive-lot{
   margin: 1em;
-  max-width: 40%;
   padding: 1em;
-}
-
-.exclusive-lot:hover {
-  background-color: #0A2240;
-
-  a {
-    color: white;
-  }
-
-  .ready-lot-learn-more .btn {
-    background-color: #0A2240;
-    color: white;
-  }
-}
-
-.exclusive-lot a:hover {
-  color: white;
+  width: 100%;
+  border-style: solid;
 }
 
 .ready-lot-image{
@@ -145,9 +130,6 @@ $breakpoint-phone: 575px;
 }
 
 @media only screen and (max-width: $breakpoint-tablet){
-  .lots-container {
-    flex-direction: column;
-  }
   .lot-details {
     flex-direction: column;
   }
@@ -185,4 +167,73 @@ $breakpoint-phone: 575px;
 
 .ready-lot-images-container:hover .overlay {
     opacity: 1;
+}
+
+.lot-iframe-container {
+  max-width: 33.3333% !important;
+  @media only screen and (max-width: 767px){
+    max-width: 100% !important;
+    padding-top: 1em;}
+}
+
+.lot-location-iframe{
+  width: 100%;
+  height: 29em;
+
+  @media only screen and (max-width: $breakpoint-desktop){
+    height: 24em;
+  }
+
+  @media only screen and (max-width: 991px){
+    height: 17.3em;
+  }
+
+}
+
+@media only screen and (max-width: $breakpoint-tablet){
+  .lot-image-map{
+    flex-direction: column;
+  }
+  .house-details-container {
+    flex-direction: column;
+  }
+
+  .lot-likes-container{
+    flex-direction: column;
+  }
+}
+
+.house-detail-row {
+  background-color: #DFDFDF;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-top: .5em;
+  padding: 1em;
+  text-align: center;
+  font-size: 1.25em;
+}
+
+.house-detail-row .lot-likes-btn {
+  background-color: white;
+  border: 3px solid #000000;
+  border-radius: 62px;
+  width: 100%;
+}
+
+.lot-likes-btn:hover {
+  background-color: #5DAE9F;
+  color: white !important;
+}
+
+.lot-likes-btn {
+  background-color: white;
+}
+
+.lot-likes-btn.active {
+  background-color: #5DAE9F;
+  color: white;
+}
+
+.lot-card-title{
+  font-size: 1.5em;
 }

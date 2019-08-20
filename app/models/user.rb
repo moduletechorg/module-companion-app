@@ -9,9 +9,13 @@ class User < ApplicationRecord
           :validatable,
           :confirmable,
           :trackable
+
   has_and_belongs_to_many :location_perks
   has_and_belongs_to_many :features
   has_many :visits, class_name: "Ahoy::Visit"
+  has_many :user_land_feedbacks
+  has_many :lands, through: :user_land_feedbacks
+  has_many :feedbacks, through: :user_land_feedbacks
 
   validates_confirmation_of :password
   validates :email,
