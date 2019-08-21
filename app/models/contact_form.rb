@@ -9,7 +9,8 @@ class ContactForm < MailForm::Base
     {
       :subject => "#{name} would like more information about #{lot_address}",
       :to => "neha@modulehousing.com, pat@modulehousing.com",
-      :from => %("#{name}" <#{email}>)
+      :from => %("#{name}" <#{email}>),
+      :reply_to => email
     }
   end
 
