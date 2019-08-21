@@ -99,7 +99,7 @@ class LandsController < ApplicationController
   private
 
     def land_params
-      params.require(:land).permit(:land, :address, :neighborhood_id, :land_type_id, :model, :bedrooms, :bathrooms, :sqft, :pricing, :location_mapframe, :nearby_mapframe, :why_we_like_it, :nearby_locations, images: [])
+      params.require(:land).permit(:land, :address, :neighborhood_id, :land_type_id, :model_id, :pricing, :location_mapframe, :nearby_mapframe, :why_we_like_it, :nearby_locations, images: [])
     end
 
 

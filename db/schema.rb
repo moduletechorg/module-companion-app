@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_20_155106) do
+ActiveRecord::Schema.define(version: 2019_08_21_190401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -158,12 +158,10 @@ ActiveRecord::Schema.define(version: 2019_08_20_155106) do
     t.datetime "updated_at", null: false
     t.text "nearby_mapframe"
     t.text "why_we_like_it"
-    t.integer "bedrooms"
-    t.float "bathrooms"
-    t.integer "sqft"
     t.string "pricing"
     t.string "location_mapframe"
-    t.string "model"
+    t.bigint "model_id"
+    t.index ["model_id"], name: "index_lands_on_model_id"
     t.index ["neighborhood_id"], name: "index_lands_on_neighborhood_id"
   end
 
@@ -178,6 +176,13 @@ ActiveRecord::Schema.define(version: 2019_08_20_155106) do
     t.bigint "user_id", null: false
     t.index ["location_perk_id", "user_id"], name: "index_location_perks_users_on_location_perk_id_and_user_id"
     t.index ["user_id", "location_perk_id"], name: "index_location_perks_users_on_user_id_and_location_perk_id"
+  end
+
+  create_table "models", force: :cascade do |t|
+    t.string "name"
+    t.integer "bedrooms"
+    t.float "bathrooms"
+    t.integer "sqft"
   end
 
   create_table "nearby_locations", force: :cascade do |t|

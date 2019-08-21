@@ -29,7 +29,7 @@
       <% @feedbacks.each do |feedback| %>
       <tr>
         <td scope="row"><%= feedback.name %></td>
-        <td><i class='fas <%= "#{feedback.icon_class}" %> '></div></i>
+        <td><i class='fas <%= "#{feedback.icon_class}" %> '></i></td>
         <td><%= link_to "Edit", edit_feedback_path(feedback), class: 'btn btn-small btn-info' %>
         <td><%= link_to "Delete", feedback_path(feedback), method: :delete, class: 'btn btn-small btn-danger' %>
       </tr>

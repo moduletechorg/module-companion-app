@@ -1,0 +1,34 @@
+<div class="justify-content-lg-center">
+
+  <%= form_for @model do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+
+    <div class="row">
+      <div class="form-group col">
+        <%= label_tag(:name, 'Name') %>
+        <%= f.text_field :name, class: 'form-control', required: true %>
+      </div>
+      <div class="form-group col">
+        <%= label_tag(:bedrooms, 'Bedrooms') %>
+        <%= f.text_field :bedrooms, class: 'form-control', required: true %>
+      </div>
+      <div class="form-group col">
+        <%= label_tag(:bathrooms, 'Bathrooms') %>
+        <%= f.text_field :bathrooms , class: 'form-control', required: true %>
+      </div>
+      <div class="form-group col">
+        <%= label_tag(:sqft, 'Sqft') %>
+        <%= f.text_field :sqft, class: 'form-control', required: true %>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col">
+        <%= f.submit "Submit", class: 'form-control btn btn-success' %>
+      </div>
+    </div>
+
+  <% end %>
+
+</div>

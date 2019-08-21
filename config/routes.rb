@@ -44,4 +44,6 @@ Rails.application.routes.draw do
 
   get 'user_land_feedbacks/toggleActive', to: 'user_land_feedbacks#toggleActive'
 
+  resources :models do
+  end
 end
