@@ -105,8 +105,8 @@
             </div>
             <% end %>
           </div>
-          <div class="row house-detail-row">
-            <div class="col">
+          <div class="row house-detail-row justify-content-md-center">
+            <div class="col-3">
               <% contact_form = ContactForm.new(name: "#{current_user.first_name} #{current_user.last_name}", email: current_user.email, lot_address: land.address) %>
               <%= render 'contact_forms/new', land: land %>
             </div>
