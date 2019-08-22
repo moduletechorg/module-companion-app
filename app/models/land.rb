@@ -12,7 +12,6 @@ class Land < ApplicationRecord
   has_many :users, through: :user_land_feedbacks
   has_many :feedbacks, through: :user_land_feedbacks
   attr_accessor :nearby_locations_10, :nearby_locations_mi
-  belongs_to :model
 
   scope :neighborhood_filter, -> (neighborhood_id) { where("neighborhood_id = ?", neighborhood_id) if neighborhood_id.present? }
   scope :land_type_filter, -> (land_type_id) { where("land_type_id = ?", land_type_id) }

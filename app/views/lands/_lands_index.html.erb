@@ -5,6 +5,9 @@
   <div class="exclusive-lot">
       <div class="row"><div class="col">
         <h3 class="lot-card-title">
+          <% if land.model? %>
+            <%= "#{land.model} @ " %>
+          <% end %>
           <%= land.address %>
         </h3>
       </div></div>
@@ -52,13 +55,17 @@
           <b>Neighborhood</b> <%= land.neighborhood.name %>
         </div>
       </div>
-      <% if land.model_id? %>
+      <% if land.bedrooms? %>
       <div class="row house-details-container">
         <div class="col">
           <div class="row house-detail-row">
-            <div class="col"><%= land.model.bedrooms %> BR</div>
-            <div class="col"><%= land.model.bathrooms %> BA</div>
-            <div class="col house-detail-sqft"><%= land.model.sqft %> Sq Ft</div>
+            <div class="col"><%= land.bedrooms %> BR</div>
+            <% if land.bathrooms? %>
+              <div class="col"><%= land.bathrooms %> BA</div>
+            <% end %>
+            <% if land.sqft? %>
+              <div class="col house-detail-sqft"><%= land.sqft %> Sq Ft</div>
+            <% end %>
           </div>
         </div>
         <% if land.pricing? %>
