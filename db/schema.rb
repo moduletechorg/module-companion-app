@@ -158,11 +158,11 @@ ActiveRecord::Schema.define(version: 2019_08_20_155106) do
     t.datetime "updated_at", null: false
     t.text "nearby_mapframe"
     t.text "why_we_like_it"
-    t.integer "bedrooms"
-    t.float "bathrooms"
-    t.integer "sqft"
     t.string "pricing"
     t.string "location_mapframe"
+    t.integer "sqft"
+    t.float "bathrooms"
+    t.integer "bedrooms"
     t.string "model"
     t.index ["neighborhood_id"], name: "index_lands_on_neighborhood_id"
   end

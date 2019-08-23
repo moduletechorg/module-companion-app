@@ -237,3 +237,12 @@ $breakpoint-desktop: 1200px;
 .lot-card-title{
   font-size: 1.5em;
 }
+
+.carousel-control-prev, .carousel-control-next {
+  opacity: 1.0 !important;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  width: 3em !important;
+  height: 3em !important;
+}
