@@ -85,7 +85,7 @@
       <div class="row">
         <div class="col">
           <div class="row house-detail-row" style="background-color: #E5E5E5; margin-bottom: -2em;">
-            <p style="width: 100%; text-align: center;"><button type="button" data-toggle="tooltip" data-placement="right" title="If you like the house, lot, or location, let us know!." style="padding: 0; background-color: transparent; margin-right: 1em;"><i class="fas fa-info-circle"></i></button>I like the:</p>
+            <p style="width: 100%; text-align: center;"><button type="button" data-toggle="tooltip" data-placement="right" title="Select the buttons below to indicate your preference. Your choices help inform our designs." style="padding: 0; background-color: transparent; margin-right: 1em;"><i class="fas fa-info-circle"></i></button>I like the:</p>
           </div>
           <div class="row house-detail-row" style='margin-top: 0; background-color: #E5E5E5;'>
             <% @feedback_options.each do |option|
@@ -104,8 +104,8 @@
             </div>
             <% end %>
           </div>
-          <div class="row house-detail-row justify-content-md-center">
-            <div class="col-3">
+          <div class="row house-detail-row">
+            <div class="col">
               <% contact_form = ContactForm.new(name: "#{current_user.first_name} #{current_user.last_name}", email: current_user.email, lot_address: land.address) %>
               <%= render 'contact_forms/new', land: land %>
             </div>

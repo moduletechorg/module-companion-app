@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row justify-content-md-center">
   <div class="col">
     <%= form_for @contact_form, remote: true do |f| %>
       <h3>Want more info? Click the button below!</h3>
@@ -8,7 +8,7 @@
 
       <div class="row">
         <div class="form-group col">
-          <%= f.submit "Learn More", class: 'form-control btn btn-success', onclick: '$(this).val("Module will be in touch soon!"); $(this).addClass("disabled");' %>
+          <%= f.submit "Learn More", class: 'form-control btn btn-success', onclick: '$(this).css("font-size", ".8em"); $(this).val("Module will be in touch soon!"); $(this).addClass("disabled"); $(this).css("pointer-events", "none");' %>
         </div>
       </div>
 
