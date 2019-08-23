@@ -1,7 +1,6 @@
 <div class="lots-container">
 <% num_lots = 0 %>
 <% @lands.each do |land| %>
-  <%= link_to (land_path(land)) do %>
   <div class="exclusive-lot">
       <div class="row"><div class="col">
         <h3 class="lot-card-title">
@@ -114,6 +113,5 @@
         </div>
       </div>
     </div>
-  <% end %>
 <% end %>
 </div>
