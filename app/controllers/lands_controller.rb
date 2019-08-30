@@ -14,7 +14,7 @@ class LandsController < ApplicationController
       @current = current_admin
     end
 
-    @lands = Land.all.order("RANDOM()")
+    @lands = Land.all.order("RANDOM()").paginate(page: params[:page], per_page: 5)
     @feedback_options = Feedback.all
     @land_type = nil
     @neigbhorhood = nil

@@ -1,5 +1,7 @@
 <div class="lots-container">
-<% num_lots = 0 %>
+  <nav>
+    <%= will_paginate @lands, class:'pagination justify-content-center' %>
+  </nav><br />
 <% @lands.each do |land| %>
   <div class="exclusive-lot">
       <div class="row"><div class="col">
@@ -117,4 +119,8 @@
       </div>
     </div>
 <% end %>
+<br />
+<nav>
+  <%= will_paginate @lands, class:'pagination justify-content-center' %>
+</nav>
 </div>

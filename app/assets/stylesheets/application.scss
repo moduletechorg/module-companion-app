@@ -272,3 +272,24 @@ footer {
   padding: 2em;
   text-align: center;
 }
+
+nav .pagination {
+  display: flex;
+  flex-direction: row;
+}
+
+nav .pagination a, nav .pagination em, nav .pagination span {
+  padding: 1em;
+  margin: 0;
+  background-color: #F0F2F6;
+  letter-spacing: .1em;
+}
+
+nav .pagination .current {
+  background-color: #5DAE9F;
+  color: white;
+}
+
+nav .pagination .disabled {
+  color: #B8BCC5;
+}
