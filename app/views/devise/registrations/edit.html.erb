@@ -42,7 +42,9 @@
       </div>
     </div>
 
+    <% if resource.is_a?(User) %>
     <%= render 'info_form', f: f %>
+    <% end %>
 
     <div class="actions form-group">
       <%= f.submit "Update", class: 'form-control btn btn-success' %>

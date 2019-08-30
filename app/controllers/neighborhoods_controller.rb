@@ -1,5 +1,5 @@
 class NeighborhoodsController < ApplicationController
-  before_action :user_is_admin?, only: [:new, :edit, :destroy]
+  before_action :authenticate_admin!, only: [:new, :edit, :destroy]
 
   def index
     @neighborhoods = Neighborhood.all.order("name ASC")

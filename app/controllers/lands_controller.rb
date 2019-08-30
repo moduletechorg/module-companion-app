@@ -2,18 +2,24 @@ require 'rmagick'
 include Magick
 
 class LandsController < ApplicationController
-  before_action :user_is_admin?, only: [:new, :edit, :destroy]
-  before_action :user_logged_in?, only: [:show, :index]
-  #before_action :check_image_dimensions, only: [:update]
+  before_action :authenticate_admin!, only: [:new, :edit, :destroy]
+  before_action :logged_in!, only: [:show, :index]
   after_action :track_lot, only: [:show]
 
   def index
+    @current = ''
+    if user_signed_in?
+      @current = current_user
+    elsif admin_signed_in?
+      @current = current_admin
+    end
+
     @lands = Land.all.order("RANDOM()")
     @feedback_options = Feedback.all
     @land_type = nil
     @neigbhorhood = nil
     @filtered = false
-    @contact_form = ContactForm.new(name: "#{current_user.first_name} #{current_user.last_name}", email: current_user.email)
+    @contact_form = ContactForm.new(name: "#{@current.first_name} #{@current.last_name}", email: @current.email)
 
     neighborhood_param = params.dig("land", "neighborhood_id")
     land_type_param = params.dig("land", "land_type_id")

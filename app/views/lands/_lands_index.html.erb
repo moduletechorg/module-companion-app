@@ -8,6 +8,9 @@
             <%= "#{land.model} @ " %>
           <% end %>
           <%= land.address %>
+          <% if admin_signed_in? %>
+          <%= link_to 'Edit', edit_land_path(land), class: 'btn btn-warning' %>
+          <% end %>
         </h3>
       </div></div>
       <div class="row lot-image-map">
@@ -90,7 +93,7 @@
           <div class="row house-detail-row" style='margin-top: 0; background-color: #E5E5E5;'>
             <% @feedback_options.each do |option|
                 active = ''
-                ulf = UserLandFeedback.where(["user_id = ? and land_id = ? and feedback_id = ?", current_user, land, option ]).first
+                ulf = UserLandFeedback.where(["user_id = ? and land_id = ? and feedback_id = ?", @current, land, option ]).first
               if ulf && ulf.active?
                 active = 'active'
               end
@@ -106,7 +109,7 @@
           </div>
           <div class="row house-detail-row">
             <div class="col">
-              <% contact_form = ContactForm.new(name: "#{current_user.first_name} #{current_user.last_name}", email: current_user.email, lot_address: land.address) %>
+              <% contact_form = ContactForm.new(name: "#{@current.first_name} #{@current.last_name}", email: @current.email, lot_address: land.address) %>
               <%= render 'contact_forms/new', land: land %>
             </div>
           </div>

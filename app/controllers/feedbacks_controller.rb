@@ -1,5 +1,5 @@
 class FeedbacksController < ApplicationController
-  before_action :user_is_admin?
+  before_action :authenticate_admin!
 
   def index
     @feedbacks = Feedback.all

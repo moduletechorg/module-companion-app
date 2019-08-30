@@ -4,20 +4,14 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   private
-    def user_is_admin?
-      if current_user
-        unless current_user.admin?
-          flash[:danger] = "Admin priveleges are required to perform that action"
-          redirect_back fallback_location: root_path
-        end
-      else
-        flash[:danger] = "You must be logged in to perform that action"
-        redirect_back fallback_location: root_path
+    def user_logged_in?
+      if !(user_signed_in?)
+        redirect_to new_user_session_path
       end
     end
 
-    def user_logged_in?
-      if !(user_signed_in?)
+    def logged_in!
+      if !(user_signed_in? || admin_signed_in?)
         redirect_to new_user_session_path
       end
     end

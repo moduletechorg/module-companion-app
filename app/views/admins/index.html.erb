@@ -1,0 +1,28 @@
+<% content_for :admin_console do %>
+  <%= link_to "Invite New Admin", new_admin_invitation_path, class: 'btn btn-primary' %>
+<% end %>
+
+<div class="container">
+
+  <h2 class="text-center">Admins</h2>
+  <ul class="list-group">
+    <div class="list-group-item">
+      <div class="row">
+        <div class="col"><strong>Name</strong></div>
+        <div class="col"><strong>Email</strong></div>
+      </div>
+    </div>
+    <% @admins.each do |user| %>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col">
+            <%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %>
+          </div>
+          <div class="col">
+            <span><%= user.email %></span>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
