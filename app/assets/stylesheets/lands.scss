@@ -240,6 +240,8 @@ $breakpoint-desktop: 1200px;
 
 .carousel-control-prev, .carousel-control-next {
   opacity: 1.0 !important;
+  background: rgb(161,161,161);
+  background: radial-gradient(circle, rgba(161,161,161,1) 0%, rgba(190,190,190,0) 20%);
 }
 
 .carousel-control-prev-icon, .carousel-control-next-icon {
