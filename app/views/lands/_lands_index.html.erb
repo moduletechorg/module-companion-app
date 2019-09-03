@@ -6,8 +6,8 @@
   <div class="exclusive-lot">
       <div class="row"><div class="col">
         <h3 class="lot-card-title">
-          <% if land.model? %>
-            <%= "#{land.model} @ " %>
+          <% if land.model %>
+            <%= "#{land.model.name} @ " %>
           <% end %>
           <%= land.address %>
           <% if admin_signed_in? %>
@@ -59,7 +59,7 @@
           <b>Neighborhood</b> <%= land.neighborhood.name %>
         </div>
       </div>
-      <% if land.model? %>
+      <% if land.model %>
       <div class="row house-details-container">
         <div class="col">
           <div class="row house-detail-row">

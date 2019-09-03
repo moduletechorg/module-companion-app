@@ -1,0 +1,44 @@
+<% content_for :admin_console do %>
+  <%= link_to "Create New Model", new_model_path, class: 'btn btn-primary' %>
+<% end %>
+
+<div class="container">
+
+  <h2 class="text-center">Models</h2>
+  <ul class="list-group">
+    <div class="list-group-item">
+      <div class="row">
+        <div class="col"><strong>Name</strong></div>
+        <div class="col"><strong>Bedrooms</strong></div>
+        <div class="col"><strong>Bathrooms</strong></div>
+        <div class="col"><strong>Sqft</strong></div>
+        <div class="col"><strong>Edit</strong></div>
+        <div class="col"><strong>Delete</strong></div>
+      </div>
+    </div>
+    <% @models.each do |model| %>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col">
+            <%= model.name %>
+          </div>
+          <div class="col">
+            <%= model.bedrooms %>
+          </div>
+          <div class="col">
+            <%= model.bathrooms %>
+          </div>
+          <div class="col">
+            <%= model.sqft %>
+          </div>
+          <div class="col">
+            <%= link_to "Edit", edit_model_path(model), class: 'btn btn-warning' %>
+          </div>
+          <div class="col">
+            <%= link_to "Delete", model_path(model), method: :destroy, class: 'btn btn-danger' %>
+          </div>
+          </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
