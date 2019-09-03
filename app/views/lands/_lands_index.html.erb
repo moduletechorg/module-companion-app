@@ -59,16 +59,16 @@
           <b>Neighborhood</b> <%= land.neighborhood.name %>
         </div>
       </div>
-      <% if land.bedrooms? %>
+      <% if land.model? %>
       <div class="row house-details-container">
         <div class="col">
           <div class="row house-detail-row">
-            <div class="col"><%= land.bedrooms %> BR</div>
-            <% if land.bathrooms? %>
-              <div class="col"><%= land.bathrooms %> BA</div>
+            <div class="col"><%= land.model.bedrooms %> BR</div>
+            <% if land.model.bathrooms? %>
+              <div class="col"><%= land.model.bathrooms %> BA</div>
             <% end %>
-            <% if land.sqft? %>
-              <div class="col house-detail-sqft"><%= land.sqft %> Sq Ft</div>
+            <% if land.model.sqft? %>
+              <div class="col house-detail-sqft"><%= land.model.sqft %> Sq Ft</div>
             <% end %>
           </div>
         </div>
