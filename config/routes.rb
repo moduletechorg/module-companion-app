@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   resources :features
   resources :location_perks
 
-  devise_for :users, :path_prefix => 'd', controllers: { registrations: "registrations" }
-  devise_for :admins, :path_prefix => 'a', controllers: { registrations: "registrations" }
+  devise_for :users, :path_prefix => 'user', controllers: { registrations: "registrations", sessions: "user_sessions" }
+  devise_for :admins, :path_prefix => 'admin', controllers: { registrations: "registrations", sessions: "admin_sessions" }
   resources :users, :only =>[:show, :make_admin, :remove_admin] do
     post :impersonate, on: :member
     post :stop_impersonating, on: :collection

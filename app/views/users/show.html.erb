@@ -6,7 +6,7 @@
     <h2><%= "#{@user.first_name} #{@user.last_name}" %></h2>
     <p><%= "#{@user.email}" %></p>
   </div>
-  <% if current_user.admin %>
+  <% if current_admin %>
     <div>
       <p>
         Last Logged In: <% if @user.last_sign_in_at %><%= @user.last_sign_in_at.to_formatted_s(:long_ordinal) %><% end %><br />
