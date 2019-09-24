@@ -19,16 +19,8 @@
     </div>
     <br />
     <div class="container">
-      <!-- Begin lot images -->
-      <% if @land.images.first %>
-        <div class="lot-info-section">
-          <div class="ready-lot-images-container">
-            <%= image_tag @land.images.first, class: "lot-info-image" %>
-            <div class="overlay">Please note, this image is for informational purposes only, the actual lot boundary will be based on survey results.</div>
-          </div>
-        </div>
-      <% end %>
-      <!-- End lot images -->
+      <%= render 'land_image_carousel', land: @land %>
+      <br />
       <div class="lot-info-section lot-details">
         <div class="lot-details-section">
           <h3>Location</h3>
@@ -42,6 +34,10 @@
             <b>Address</b>
             <p><%= @land.address %></p>
           </div>
+          <div>
+            <b>Coordinates</b>
+            <p><%= "#{@land.latitude}, #{@land.longitude}" %></p>
+          </div>
         </div>
         <div class="lot-blurb lot-details-section">
           <h3>Why We Like It</h3>
@@ -54,7 +50,7 @@
         <h2>What's Close By</h2>
         <div class="line-break"></div>
         <div class="overlay" onclick="style.pointerEvents='none'"></div>
-        <% if @land.nearby_mapframe %>
+        <% if @land.nearby_mapframe? %>
            <iframe class="land-iframe" frameborder="0" style="border:0" src=<%= @land.nearby_mapframe %> allowfullscreen></iframe>
         <% end %>
       </div>

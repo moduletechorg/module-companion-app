@@ -14,7 +14,8 @@ class LandsController < ApplicationController
       @current = current_admin
     end
 
-    @lands = Land.all.order("RANDOM()").paginate(page: params[:page], per_page: 5)
+    @lands = Land.all
+    #@lands = Land.all.order("RANDOM()").paginate(page: params[:page], per_page: 5)
     @feedback_options = Feedback.all
     @land_type = nil
     @neigbhorhood = nil
@@ -105,7 +106,7 @@ class LandsController < ApplicationController
   private
 
     def land_params
-      params.require(:land).permit(:land, :address, :neighborhood_id, :land_type_id, :model_id, :bedrooms, :bathrooms, :sqft, :pricing, :location_mapframe, :nearby_mapframe, :why_we_like_it, :nearby_locations, images: [])
+      params.require(:land).permit(:land, :address, :neighborhood_id, :land_type_id, :model_id, :bedrooms, :bathrooms, :sqft, :pricing, :location_mapframe, :nearby_mapframe, :why_we_like_it, :latitude, :longitude, :nearby_locations, images: [])
     end
 
 

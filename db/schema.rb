@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_03_161159) do
+ActiveRecord::Schema.define(version: 2019_09_18_140941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -189,9 +189,15 @@ ActiveRecord::Schema.define(version: 2019_09_03_161159) do
     t.datetime "updated_at", null: false
     t.text "nearby_mapframe"
     t.text "why_we_like_it"
+    t.integer "bedrooms"
+    t.float "bathrooms"
+    t.integer "sqft"
     t.string "pricing"
     t.string "location_mapframe"
+    t.string "model"
     t.bigint "model_id"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["model_id"], name: "index_lands_on_model_id"
     t.index ["neighborhood_id"], name: "index_lands_on_neighborhood_id"
   end

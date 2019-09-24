@@ -4,16 +4,6 @@
     <%= render 'shared/delete_images', object: @land %>
   </div>
   <br />
-  <% if @locations %>
-    <p>Click on the locations below to remove them from this lot listing</p>
-      <% @locations.each do |loc| %>
-        <div class="row"><div class="col">
-          <div>
-            <%= link_to loc.name, nearby_location_path(loc), method: :delete %>
-          </div>
-        </div></div>
-      <% end %>
-  <% end %>
   <br />
   <div class="line-break"></div>
   <%= form_for @land do |f| %>
@@ -23,6 +13,14 @@
       <div class="form-group col">
         <%= label_tag(:address, 'Address') %>
         <%= f.text_field :address, class: 'form-control' %>
+      </div>
+      <div class="form-group col">
+        <%= label_tag(:latitude, 'Latitude') %>
+        <%= f.text_field :latitude, class: 'form-control' %>
+      </div>
+      <div class="form-group col">
+        <%= label_tag(:longitude, 'Longitude') %>
+        <%= f.text_field :longitude, class: 'form-control' %>
       </div>
       <div class="form-group col">
         <%= label_tag(:neighborhood, 'Neighborhood') %>
