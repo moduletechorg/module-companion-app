@@ -1,0 +1,57 @@
+<div class="exclusive-lot" id='<%= "lot-card-#{land.id}" %>'>
+    <a name="<%= land.id %>"></a>
+    <div class="row">
+      <div class="col">
+        <h3 class="lot-card-title">
+          <% if land.model %>
+            <%= "#{land.model.name} @ " %>
+          <% end %>
+          <%= land.address %>
+          <% if admin_signed_in? %>
+          <%= link_to 'Edit', edit_land_path(land), class: 'btn btn-warning' %>
+          <% end %>
+        </h3>
+      </div>
+      <div class="col-1" onclick="document.getElementById('<%= "lot-card-#{land.id}" %>').style.display = 'none';">
+        <p>x</p>
+      </div>
+    </div>
+    <div class="row lot-image-map">
+      <div class="col">
+        <%= render 'land_image_carousel', land: land %>
+      </div>
+    </div>
+    <div class="row ready-lot-info">
+      <div class="col">
+        <b>Address</b> <%= land.address %>
+      </div>
+      <div class="col">
+        <b>Neighborhood</b> <%= land.neighborhood.name %>
+      </div>
+    </div>
+    <% if land.model %>
+    <div class="row house-details-container">
+      <div class="col">
+        <div class="row house-detail-row">
+          <div class="col"><%= land.model.bedrooms %> BR</div>
+          <% if land.model.bathrooms? %>
+            <div class="col"><%= land.model.bathrooms %> BA</div>
+          <% end %>
+          <% if land.model.sqft? %>
+            <div class="col house-detail-sqft"><%= land.model.sqft %> Sq Ft</div>
+          <% end %>
+        </div>
+        <div class="row house-detail-row">
+          <div class="col">Price Range:</div>
+          <div class="col"><%= land.pricing %></div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <div class="row house-detail-row">
+      <div class="col">
+        <% contact_form = ContactForm.new(name: "#{@current.first_name} #{@current.last_name}", email: @current.email, lot_address: land.address) %>
+        <%= render 'contact_forms/new', land: land %>
+      </div>
+    </div>
+  </div>
