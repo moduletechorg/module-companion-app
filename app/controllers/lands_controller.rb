@@ -14,7 +14,10 @@ class LandsController < ApplicationController
     @land_type = nil
     @neigbhorhood = nil
     @filtered = false
-    @contact_form = ContactForm.new(name: "#{current_user.first_name} #{current_user.last_name}", email: current_user.email)
+    @contact_form = ContactForm.new()
+    if current_user
+      @contact_form = ContactForm.new(name: "#{current_user.first_name} #{current_user.last_name}", email: current_user.email)
+    end
 
     neighborhood_param = params.dig("land", "neighborhood_id")
     land_type_param = params.dig("land", "land_type_id")
