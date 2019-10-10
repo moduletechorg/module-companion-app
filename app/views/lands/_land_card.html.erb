@@ -12,13 +12,13 @@
           <% end %>
         </h3>
       </div>
-      <div class="col-1" onclick="document.getElementById('<%= "lot-card-#{land.id}" %>').style.display = 'none';">
+      <div class="col-1 lot-card-x" onclick="document.getElementById('<%= "lot-card-#{land.id}" %>').style.display = 'none';">
         <p>x</p>
       </div>
     </div>
     <div class="row lot-image-map">
       <div class="col">
-        <%= render 'land_image_carousel', land: land %>
+        <%= render 'lands/land_image_carousel', land: land %>
       </div>
     </div>
     <div class="row ready-lot-info">
@@ -48,9 +48,23 @@
       </div>
     </div>
     <% end %>
-    <div class="row house-detail-row">
+    <div class="row house-detail-row ">
       <div class="col">
-        <% contact_form = ContactForm.new(name: "#{@current.first_name} #{@current.last_name}", email: @current.email, lot_address: land.address) %>
+        <%
+          saved = false
+          lot_saved = SavedLot.where(["user_id = ? and land_id = ?", current_user.id, land.id ]).first
+          if lot_saved
+            saved = true
+          end
+        %>
+        <%= link_to toggleSave_path(land), remote: true do %>
+          <button class='btn lot-saved-btn <% if saved %>saved<% end %>' data-toggle="button" onclick='
+            this.classList.toggle("saved");' aria-pressed="false">
+            <i class='fas fa-heart'></i></button>
+        <% end %>
+      </div>
+      <div class="col">
+        <% @contact_form = ContactForm.new(name: "#{current_user.first_name} #{current_user.last_name}", email: current_user.email, lot_address: land.address) %>
         <%= render 'contact_forms/new', land: land %>
       </div>
     </div>

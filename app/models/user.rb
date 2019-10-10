@@ -17,6 +17,9 @@ class User < ApplicationRecord
   has_many :lands, through: :user_land_feedbacks
   has_many :feedbacks, through: :user_land_feedbacks
 
+  has_many :saved_lots
+  has_many :lands, :through => :saved_lots
+
   validates_confirmation_of :password
   validates :email,
             :first_name,

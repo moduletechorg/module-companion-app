@@ -1,17 +1,12 @@
-<div class="row justify-content-md-center">
-  <div class="col">
-    <%= form_for @contact_form, remote: true do |f| %>
-      <h3>Want more info? Click the button below!</h3>
-      <%= render 'shared/error_messages', object: f.object %>
+<%= form_for @contact_form, remote: true do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
 
-      <%= f.hidden_field :lot_address, :value => land.address %>
+  <%= f.hidden_field :lot_address, :value => land.address %>
 
-      <div class="row">
-        <div class="form-group col">
-          <%= f.submit "Learn More", class: 'form-control btn btn-success', onclick: '$(this).css("font-size", ".8em"); $(this).val("Module will be in touch soon!"); $(this).addClass("disabled"); $(this).css("pointer-events", "none");' %>
-        </div>
-      </div>
-
-    <% end %>
+  <div class="row">
+    <div class="form-group col" style="margin:0;">
+      <%= f.submit "Make it Mine", class: 'form-control btn make-mine-btn', onclick: '$(this).css("font-size", ".8em"); $(this).val("Module will be in touch soon!"); $(this).addClass("disabled"); $(this).css("pointer-events", "none");' %>
+    </div>
   </div>
-</div>
+
+<% end %>

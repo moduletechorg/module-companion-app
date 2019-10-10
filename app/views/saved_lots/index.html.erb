@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="double-header text-center">
+    <h2 class="text-center title">
+      Saved Lots
+    </h2>
+    <div class="saved-lots-container">
+      <% @saved_lots.each do |s| %>
+        <% land = Land.find(s.land_id) %>
+        <%= render 'lands/land_card', land: land %>
+      <% end %>
+    </div>
+  </div>
+</div>

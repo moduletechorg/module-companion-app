@@ -57,4 +57,9 @@ Rails.application.routes.draw do
 
   get 'user_land_feedbacks/toggleActive', to: 'user_land_feedbacks#toggleActive'
 
+  resources :saved_lots do
+  end
+
+  match 'users/toggleSave/:land_id', to: 'users#toggleSave', via: 'get', as: 'toggleSave'
+
 end

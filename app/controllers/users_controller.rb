@@ -28,5 +28,17 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def toggleSave
+    land = Land.find(params[:land_id])
+    saved_lot = SavedLot.where(["user_id = ? and land_id = ?", current_user.id, land.id ]).first
+    if saved_lot
+      saved_lot.destroy
+    else
+      saved_lot = SavedLot.new
+      saved_lot.land = land
+      saved_lot.user = current_user
+      saved_lot.save
+    end
+  end
 
 end

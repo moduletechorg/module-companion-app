@@ -24,6 +24,7 @@
       <% end %>
       <% if :logged_in! %>
         <% if user_signed_in? %>
+          <li><%= link_to 'Saved Lots', saved_lots_path, class: 'nav-link nav-item' %></li>
           <li><%= link_to 'Edit Profile', edit_user_registration_path(current_user), class: 'nav-link nav-item' %></li>
           <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link nav-item' %></li>
         <% elsif admin_signed_in? %>

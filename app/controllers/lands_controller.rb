@@ -7,12 +7,6 @@ class LandsController < ApplicationController
   after_action :track_lot, only: [:show]
 
   def index
-    @current = ''
-    if user_signed_in?
-      @current = current_user
-    elsif admin_signed_in?
-      @current = current_admin
-    end
 
     @lands = Land.all.order('address, model_id')
     #@lands = Land.all.order("RANDOM()").paginate(page: params[:page], per_page: 5)
@@ -20,7 +14,7 @@ class LandsController < ApplicationController
     @land_type = nil
     @neigbhorhood = nil
     @filtered = false
-    @contact_form = ContactForm.new(name: "#{@current.first_name} #{@current.last_name}", email: @current.email)
+    @contact_form = ContactForm.new(name: "#{current_user.first_name} #{current_user.last_name}", email: current_user.email)
 
     neighborhood_param = params.dig("land", "neighborhood_id")
     land_type_param = params.dig("land", "land_type_id")
